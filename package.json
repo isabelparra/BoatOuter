@@ -5,6 +5,7 @@
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "heroku-prebuild": "cd client && yarn install",
     "heroku-postbuild": "node scripts/build.js"
   },
