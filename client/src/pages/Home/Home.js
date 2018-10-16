@@ -20,7 +20,7 @@ class Home extends Component {
       type: "",
       date: "",
       passengers: "",
-      activity: "",
+      activity: ""
       // results: []
   };
 
@@ -89,6 +89,7 @@ class Home extends Component {
         type: this.state.type,
         date: this.state.date,
         passengers: this.state.passengers,
+        activity: this.state.activity
       }
     });
  }
@@ -129,8 +130,19 @@ class Home extends Component {
                   type="integer"
                   placeholder="Passengers (required)"
                   />
-  
+                <select 
+                value={this.state.activity} 
+                onChange={this.handleChange} 
+                name='activity'
+                >
+                <option disabled selected value>Select activity</option>
+                  <option value="Cruising">Cruising</option>
+                  <option value="Fishing">Fishing</option>
+                  <option value="Watersports">Watersports</option>
+                </select>
           
+             
+  
          <FormBtn 
                 type="submit"
                 onClick={this.props.handleFormSubmit}
