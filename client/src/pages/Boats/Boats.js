@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import { withRouter } from 'react-router-dom'
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import PropTypes from "prop-types";
+// import { Link } from "react-router-dom";
 import BoatCard from "../../components/BoatCard";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 import API from "../../utils/API";
 
 class Boats extends Component {

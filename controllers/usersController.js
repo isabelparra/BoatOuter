@@ -10,4 +10,4 @@ module.exports = {
     accessGranted: async (req, res, next) => {
         console.log('UsersController.acessGranted() called!');
     },
-}
+};
