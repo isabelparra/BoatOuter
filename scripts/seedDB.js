@@ -66,3 +66,33 @@ db.Boats
     process.exit(1);
   });
 
+const captainsSeed = [
+  {
+    captain: "Raul",
+    boatNames: ["lil yatch", "Tablada"],
+    email: "raulthecaptain@gmai.com"
+  },
+  {
+    captain: "Annabelle",
+    boatNames: ["Doula Boat", "Belle"],
+    email: "belleboats@gmai.com"
+  },
+  {
+    captain: "Isabel",
+    boatNames: ["issa boat", "Fishing Trawler"],
+    email: "issacaptain@gmai.com"
+  },
+];
+
+db.Captains
+  .remove({})
+  .then(() => db.Captains.collection.insertMany(captainsSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
