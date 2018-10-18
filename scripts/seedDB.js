@@ -10,64 +10,48 @@ mongoose.connect(
 
 const boatsSeed = [
   {
-    passengers: "14",
-    activity:
-      "Crusing",
-    date: 2018/10/27
+    boatName: "lil yatch",
+    captain: "Raul",
+    capacity: "10",
+    activity: "Cruising",
+   // date:
   },
   {
-    passengers: "10",
-    activity:
-      "Fishing",
-      date: 2018/10/27
+    boatName: "Tablada",
+    captain: "Raul",
+    capacity: "6",
+    activity: "Fishing",
+    // date:
   },
   {
-    date: 2018/10/18,
-    passengers: "5",
-    activity:
-      "Watersports"
-  
+    boatName: "Doula Boat",
+    captain: "Annabelle",
+    capacity: "4",
+    activity: "Watersports",
+    // date:
   },
   {
-    date: "18/10/18",
-    passengers: "10",
-    activity:
-      "Fishing"
+    boatName: "Belle",
+    captain: "Annabelle",
+    capacity: "8",
+    activity: "Fishing",
+    // date:
   },
   {
-    date: "18/10/18",
-    passengers: "7",
-    activity:
-      "Cruising"
-    
+    boatName: "issa boat",
+    captain: "Isabel",
+    capacity: "12",
+    activity: "Cruising",
+    // date:
   },
   {
-    // date: "11/12/18",
-    passengers: "5",
-    activity:
-      "Fishing"
+    boatName: "Fishing Trawler",
+    captain: "Isabel",
+    capacity: "8",
+    activity: "Fishing",
+    // date:
+  },
     // date: new Date(Date.now())
-  },
-  {
-    // date: "11/12/18",
-    passengers: "10",
-    activity:
-      "Watersports"
-    // date: new Date(Date.now())
-  },
-  {
-    // date: "11/12/18",
-    passengers: "7",
-    activity:
-      "Cruising"
-    // date: new Date(Date.now())
-  },
-  {
-    // date: "11/14/18",
-    passengers: "7",
-    activity:
-      "Cruising"
-  }
 ];
 
 db.Boats
@@ -81,3 +65,4 @@ db.Boats
     console.error(err);
     process.exit(1);
   });
+

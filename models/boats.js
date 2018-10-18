@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const boatsSchema = new Schema({
-  type: { type: Boolean, required: true },
-  passengers: { type: String, required: true },
+  boatName: { type: Boolean, required: true },
+  captain: { type: String, required: true },
+  capacity: { type: String, required: true},
   activity: { type: String, required: true },
   date: { type: Date, default: Date.now }
 });
