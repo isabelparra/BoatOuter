@@ -3,21 +3,21 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
 
 // import { SearchForm } from "../../components/SearchForm";
 // import { throws } from "assert";
 // import { AsyncParallelBailHook } from "tapable";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 
 
 class Home extends Component {
   state = {
       boats: [], 
       // searchBoats: ""
-      type: "",
+      package: "",
       date: "",
       passengers: "",
       activity: ""
@@ -58,13 +58,13 @@ class Home extends Component {
 
   handleSharedClicked = () => {
     this.setState({
-      type: 'shared'
+      package: 'shared'
     });
   };
 
   handlePrivateClicked = () => {
     this.setState({
-      type: 'private'
+      package: 'private'
     });
   };
     
@@ -72,7 +72,7 @@ class Home extends Component {
     event.preventDefault();
     // debugger;
 
-    if (this.state.type && this.state.date && this.state.passengers) {
+    if (this.state.package && this.state.date && this.state.passengers) {
     //   API.saveBoat({
     //     type: this.state.type,
     //     date: this.state.date,
@@ -86,7 +86,7 @@ class Home extends Component {
       pathname: '/boats',
       state:
       { 
-        type: this.state.type,
+        package: this.state.package,
         date: this.state.date,
         passengers: this.state.passengers,
         activity: this.state.activity
@@ -131,29 +131,29 @@ class Home extends Component {
                   placeholder="Passengers (required)"
                   />
                 <select 
-                value={this.state.activity} 
+                defaultValue={this.state.activity} 
                 onChange={this.handleChange} 
                 name='activity'
                 >
-                <option disabled selected value>Select activity</option>
+                {/* <option disabled selected value>Select activity</option> */}
                   <option value="Cruising">Cruising</option>
                   <option value="Fishing">Fishing</option>
                   <option value="Watersports">Watersports</option>
                 </select>
           
              
-  
-         <FormBtn 
-                type="submit"
-                onClick={this.props.handleFormSubmit}
-                // type="success"
-                className="btn btn-success"
-                >
-                Search
-                </FormBtn>
-                
-        
-              </form> 
+
+  <FormBtn 
+  type="submit"
+  onClick={this.props.handleFormSubmit}
+  // type="success"
+  className="btn btn-success"
+  >
+  Search
+  </FormBtn>
+            
+    
+      </form> 
 
              
               
@@ -166,6 +166,8 @@ class Home extends Component {
       </Container>
     );
   }
+
+
     
 }
   
