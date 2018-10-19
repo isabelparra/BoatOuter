@@ -1,23 +1,22 @@
 import React, { Component } from "react";
-
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import BoatCard from "../../components/BoatCard";
+import CaptainCard from "../../components/captainCard";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
 
-class Boats extends Component {
+class Captains extends Component {
   state =  {
     search: "", 
-    boatName: []
+    captain: []
   };
 
 componentDidMount() {
-  API.getBoats()
+  API.getCaptains()
   .then(res => {
     console.log(res);
-    this.setState ({ boats: res.data });
+    this.setState ({ captains: res.data });
   });
 }
 
@@ -37,15 +36,15 @@ handleInputChange = event => {
   render() {
     return (
       <Container>
-        <h1>Boats Available</h1>
-        {this.state.boatName.map(boat => (
-          <BoatCard
+        <h1>Captains</h1>
+        {this.state.captains.map(captain => (
+          <CaptainCard
             // id={boat.id}
-            key={boat._id}
+            key={captain._id}
             // type={boat.type}
             // activity={boat.activity}
             // capacity={boat.capacity} 
-            boat={boat}
+            captain={captain}
             />
           // <div>
           //   This is boat with activity {boat.activity}
@@ -58,4 +57,4 @@ handleInputChange = event => {
 
 
 
-export default withRouter(Boats);
+export default withRouter(Captains);

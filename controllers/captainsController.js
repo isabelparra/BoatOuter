@@ -5,7 +5,6 @@ module.exports = {
     findAll: function (req, res) {
         db.Captains
             .find(req.query)
-            // .sort({ date })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

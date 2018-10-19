@@ -9,4 +9,4 @@ const captainsSchema = new Schema({
 
 const Captains = mongoose.model("Captain", captainsSchema);
 
-module.exports = captains;
+module.exports = Captains;

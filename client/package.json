@@ -1,6 +1,6 @@
 {
   "name": "final-boat",
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:5004/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
