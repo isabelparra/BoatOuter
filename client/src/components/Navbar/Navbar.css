@@ -1,19 +1,22 @@
-/* .nav link {
+.nav link {
     text-align: right;
-} */
+}
 
-/* 
+ 
 .navbar {
-    background: #653bb5;
+    background: #64b7d1;
     height: 60px;
   }
   
   .navbar ul {
     margin: 0;
+    float: right;
+    text-decoration: none;
   }
   
   .navbar li {
     display: inline-block;
+    
   }
   
   .navbar a {
@@ -22,6 +25,12 @@
     text-decoration: none;
     margin: 5px;
     line-height: 3;
+   
     
-  } */
+  } 
   
+/* 
+#navbar-nav {
+  float: right; 
+  text-decoration: none;
+} */

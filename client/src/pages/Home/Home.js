@@ -6,22 +6,27 @@ import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
-
 // import { SearchForm } from "../../components/SearchForm";
 // import { throws } from "assert";
 // import { AsyncParallelBailHook } from "tapable";
 import { Input, FormBtn } from "../../components/Form";
+import { Carousel } from "react-bootstrap";
 
+// import ReactBootstrapCarousel from "react-bootstrap-carousel";
+// import "bootstrap/dist/css/bootstrap.css";
+// import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+import boat from "../../assets/images/boat.png";
+import carousel from "../../assets/images/carousel.png";
+import preview from "../../assets/images/preview.png";
 
 class Home extends Component {
   state = {
       boats: [], 
-      // searchBoats: ""
+      // results: 
       package: "",
       date: "",
       passengers: "",
       activity: ""
-      // results: []
   };
 
   static propTypes = {
@@ -30,24 +35,6 @@ class Home extends Component {
     history: PropTypes.object.isRequired
   };
 
-  // componentDidMount() {
-  //   this.loadBoats();
-  // }
-
-  // loadBoats = () => {
-  //   API.getBoats()
-  //     .then(res =>
-  //       this.setState({ boats: res.data, type: "", date: "", passengers: "", activity: "" }))
-  //       // this.setState({ results: res.data.data }))
-  //       .catch(err => console.log(err));
-  // };
-        // const response = await fetch('/api/boats');
-        // const body = await response.json();
-    
-        // if (response.status !== 200) throw Error(body.message);
-    
-        // return body;
-     
   handleInputChange = event => {
     const { name, value } = event.target;
     console.log(value);
@@ -66,22 +53,13 @@ class Home extends Component {
     this.setState({
       package: 'private'
     });
+   
   };
-    
+  
   handleFormSubmit = event => {
     event.preventDefault();
     // debugger;
-
     if (this.state.package && this.state.date && this.state.passengers) {
-    //   API.saveBoat({
-    //     type: this.state.type,
-    //     date: this.state.date,
-    //     passengers: this.state.passengers,
-    //     activity: this.state.activity
-    // })
-        // .then(res => this.loadBoats())
-        // .catch(err => console.log(err));
-
     this.props.history.push('/boats', {
       pathname: '/boats',
       state:
@@ -92,27 +70,31 @@ class Home extends Component {
         activity: this.state.activity
       }
     });
- }
-  };
+  }
+};
 
   render() {
     return (
+   
         <Container fluid>
           <Row>
             <Col size="12">
-              <Jumbotron>
-                <h1>Discover the freedom of boating</h1>
-                <p>Plan your next water adventure for less</p>
-              </Jumbotron>
-              <div id='container'>
-              <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
-              <button id='private' onClick={this.handlePrivateClicked}>Private</button>
+              {this.renderCarousel()}
+
+              {/* {this.onClick("#shared")} */}
+                
+{/*              
+        <video className="video-background" preload="true" muted="true" autoplay="true" loop="true">
+          <source src="/Users/isabelparra/Desktop/code/projectsTest/BoatOuter/client/src/pages/Home/A_boat_sailing_on_the_sea.mp4" type="video/mp4" />
+        </video>
+         */}
+          {/* ($"shared").on('click', function()) */}
+
+
+              <div id='packageContainer'>
+                <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
+                <button id='private' onClick={this.handlePrivateClicked}>Private</button>
               </div>
-              {/* <SearchForm
-              value={this.state.search}
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-              /> */}
               <form id='searchForm' onSubmit={this.handleFormSubmit}>
                 <Input
                   value={this.state.date}
@@ -131,45 +113,62 @@ class Home extends Component {
                   placeholder="Passengers (required)"
                   />
                 <select 
-                defaultValue={this.state.activity} 
-                onChange={this.handleChange} 
-                name='activity'
+                  defaultValue={this.state.activity} 
+                  onChange={this.handleChange} 
+                  name='activity'
                 >
-                {/* <option disabled selected value>Select activity</option> */}
+                  <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
                   <option value="Cruising">Cruising</option>
                   <option value="Fishing">Fishing</option>
                   <option value="Watersports">Watersports</option>
                 </select>
-          
-             
-
-  <FormBtn 
-  type="submit"
-  onClick={this.props.handleFormSubmit}
-  // type="success"
-  className="btn btn-success"
-  >
-  Search
-  </FormBtn>
-            
-    
-      </form> 
-
-             
-              
-
-
+                <FormBtn 
+                  type="submit"
+                  onClick={this.props.handleFormSubmit}
+                  className="btn btn-success"
+                >
+                  Search
+                </FormBtn>
+              </form> 
+              <div id="details">
+                <img width={200} height={300} alt="900x500"src={carousel}/>
+              </div>
 
 
           </Col>
         </Row>
       </Container>
     );
+  } 
+
+  renderCarousel = () => {
+    return (
+      <Carousel>
+        <Carousel.Item>
+          <img width={900} height={500} alt="900x500" src={preview}/>
+          <Carousel.Caption>
+            <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img width={900} height={500} alt="900x500" src={preview}/>
+          <Carousel.Caption>
+            
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img width={900} height={500} alt="900x500" src={preview}/>
+          <Carousel.Caption>
+            
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>    
+    );
   }
-
-
-    
 }
+  // renderSharedDetails = () => {
+
   
 
 export default withRouter(Home);

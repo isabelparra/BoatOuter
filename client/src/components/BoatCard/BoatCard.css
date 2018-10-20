@@ -1,0 +1,16 @@
+.card {
+    display: inline;
+
+}
+
+#boatImg {
+  
+   width: 50%;
+    height: 50%; 
+    overflow: hidden; 
+
+}
+
+/* ul {
+    list-style: none;
+  } */
