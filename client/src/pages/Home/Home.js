@@ -10,16 +10,18 @@ import { Col, Row, Container } from "../../components/Grid";
 // import { throws } from "assert";
 // import { AsyncParallelBailHook } from "tapable";
 import { Input, FormBtn } from "../../components/Form";
+import SharedDetails from "../../components/SharedDetails";
 import { Carousel } from "react-bootstrap";
 
 // import ReactBootstrapCarousel from "react-bootstrap-carousel";
 // import "bootstrap/dist/css/bootstrap.css";
 // import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import boat from "../../assets/images/boat.png";
-import carousel from "../../assets/images/carousel.png";
+// import carousel from "../../assets/images/carousel.png";
 import preview from "../../assets/images/preview.png";
 
 class Home extends Component {
+
   state = {
       boats: [], 
       // results: 
@@ -28,6 +30,7 @@ class Home extends Component {
       passengers: "",
       activity: ""
   };
+
 
   static propTypes = {
     match: PropTypes.object.isRequired,
@@ -45,8 +48,9 @@ class Home extends Component {
 
   handleSharedClicked = () => {
     this.setState({
-      package: 'shared'
+      package: 'shared' 
     });
+    console.log("Shared Packaged");
   };
 
   handlePrivateClicked = () => {
@@ -74,8 +78,14 @@ class Home extends Component {
 };
 
   render() {
+   var details;
+   if(this.state.package === "shared"){
+     details = <SharedDetails></SharedDetails>
+   } else {
+     details = <h1>no</h1>
+   }
     return (
-   
+    
         <Container fluid>
           <Row>
             <Col size="12">
@@ -92,7 +102,10 @@ class Home extends Component {
 
 
               <div id='packageContainer'>
-                <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
+                <button id='shared' onClick={this.handleSharedClicked}>
+{/*                 
+                {this.state.package ? 'Shared' : 'Private'} */}
+                Shared</button>
                 <button id='private' onClick={this.handlePrivateClicked}>Private</button>
               </div>
               <form id='searchForm' onSubmit={this.handleFormSubmit}>
@@ -130,11 +143,15 @@ class Home extends Component {
                   Search
                 </FormBtn>
               </form> 
-              <div id="details">
-                <img width={200} height={300} alt="900x500"src={carousel}/>
+              <div>
+                <h1>Details</h1>
+                {details}
               </div>
-
-
+          {/* {this.renderSharedDetails()} */}
+              {/* <SharedDetails>
+                <h1>Shared</h1>
+              </SharedDetails> */}
+        
           </Col>
         </Row>
       </Container>
@@ -154,21 +171,25 @@ class Home extends Component {
         <Carousel.Item>
         <img width={900} height={500} alt="900x500" src={preview}/>
           <Carousel.Caption>
-            
+          <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img width={900} height={500} alt="900x500" src={preview}/>
           <Carousel.Caption>
-            
+          <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>    
     );
   }
-}
-  // renderSharedDetails = () => {
+ 
 
   
+   
+
+}
 
 export default withRouter(Home);
