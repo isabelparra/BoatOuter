@@ -1,0 +1,10 @@
+#detailsImg {
+    float: left;
+}
+h1, h4, p {
+    text-align: center;
+}
+
+#detailsIcon {
+    max-width: 50px;
+}

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
+// import Jumbotron from "../../components/Jumbotron";
+// import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
@@ -16,7 +16,7 @@ import { Carousel } from "react-bootstrap";
 // import ReactBootstrapCarousel from "react-bootstrap-carousel";
 // import "bootstrap/dist/css/bootstrap.css";
 // import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import boat from "../../assets/images/boat.png";
+// import boat from "../../assets/images/boat.png";
 // import carousel from "../../assets/images/carousel.png";
 import preview from "../../assets/images/preview.png";
 
@@ -103,7 +103,7 @@ class Home extends Component {
 
               <div id='packageContainer'>
                 <button id='shared' onClick={this.handleSharedClicked}>
-{/*                 
+{/*
                 {this.state.package ? 'Shared' : 'Private'} */}
                 Shared</button>
                 <button id='private' onClick={this.handlePrivateClicked}>Private</button>
@@ -124,6 +124,7 @@ class Home extends Component {
                   name="passengers"
                   type="integer"
                   placeholder="Passengers (required)"
+                  id="partySize"
                   />
                 <select 
                   defaultValue={this.state.activity} 
@@ -143,14 +144,10 @@ class Home extends Component {
                   Search
                 </FormBtn>
               </form> 
-              <div>
-                <h1>Details</h1>
+              <div id="packageDetails">
                 {details}
               </div>
-          {/* {this.renderSharedDetails()} */}
-              {/* <SharedDetails>
-                <h1>Shared</h1>
-              </SharedDetails> */}
+        
         
           </Col>
         </Row>
@@ -185,11 +182,6 @@ class Home extends Component {
       </Carousel>    
     );
   }
- 
-
-  
-   
-
 }
 
 export default withRouter(Home);
