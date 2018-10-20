@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
 
+
 // class App extends Component {
 //   state = {
 //     response: ''
@@ -50,50 +51,21 @@ const App = () => (
       //     </a>
       //   </header>
       // </div>
-      <Router> 
-  <div>
-  <Navbar />
-
-  
-  
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/home" component={Home} />
-    <Route exact path="/boats" component={Boats} />
-    <Route exact path="/about" component={About} />
-    <Route component={NoMatch} />
-  
-  </Switch>
-
-  
-  
-  <Footer />
-  </div>
+  <Router> 
+    <div>
+      <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/boats" component={Boats} />
+          <Route exact path="/about" component={About} />
+          <Route component={NoMatch} />
+        </Switch>
+      <Footer />
+    </div>
   </Router>
-    );
+);
 
 
 export default App;
-
-
-
-
-// const App = () => (
-
-//   <Router> 
-//   <div>
-//   <Navbar />
-  
-  
-//   <Switch>
-//     <Route exact path="/" component={Home} />
-//     <Route exact path="/home" component={Home} />
-//     <Route exact path="/detail" component={Detail} />
-//     {/* <Route exact path="/account" component={Account} /> */}
-//   </Switch>
-  
-//   <Footer />
-//   </div>
-//   </Router>
-// );
 

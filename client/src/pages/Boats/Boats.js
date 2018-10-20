@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-
+import Jumbotron from "../../components/Jumbotron";
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import BoatCard from "../../components/BoatCard";
-import { Col, Row, Container } from "../../components/Grid";
+// import { Container } from "../../components/Grid";
+// import { gridInstance } from "../../components/gridInstance";
 import API from "../../utils/API";
+import { Grid, Row, Col } from "react-bootstrap";
 
 class Boats extends Component {
   state =  {
@@ -23,9 +25,9 @@ componentDidMount() {
 
 handleInputChange = event => {
   const { name, value } = event.target;
-  this.setState({
-    [name]: value
-  });
+    this.setState({
+      [name]: value
+    });
 };
 
 // componentDidMount() {
@@ -36,22 +38,26 @@ handleInputChange = event => {
 
   render() {
     return (
-      <Container>
-        <h1>Boats Available</h1>
-        {this.state.boats.map(boat => (
+      
+      
+      
+    //   <gridInstance>
+    //    boat
+    // </gridInstance>
+    <Grid className="container-fluid">
+    <Row className="show-grid">
+      {this.state.boats.map(boat => ( 
+        <Col xs={12} md={5}>       
           <BoatCard
-            // id={boat.id}
             key={boat._id}
-            // type={boat.type}
-            // activity={boat.activity}
-            // capacity={boat.capacity} 
             boat={boat}
             />
-          // <div>
-          //   This is boat with activity {boat.activity}
-          // </div>
-        ))}
-      </Container>
+          </Col>
+        ))}     
+    </Row>
+</Grid>
+
+      
     );
   }
 }
