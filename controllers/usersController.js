@@ -1,15 +1,15 @@
 const JWT = require("jsonwebtoken");
 const User = require("../models/user");
-const {JWT_SECRET} = require("../config");
+const { JWT_SECRET } = require("../config");
 
 signToken = User => {
     return JWT.sign(
         {
-        iss: "BoatOuter",
-        sub: User._id,
-        iat:new Date().getTime(),
-        exp: new Date().setDate( new Date().getDate() + 1) //Current time + 1 day ahead.
-        }, 
+            iss: "BoatOuter",
+            sub: User._id,
+            iat: new Date().getTime(),
+            exp: new Date().setDate(new Date().getDate() + 1) //Current time + 1 day ahead.
+        },
         JWT_SECRET);
 }
 
@@ -38,8 +38,8 @@ module.exports = {
         });
         await newUser.save();
 
-          // Generate the token
-          const token = signToken(newUser);
+        // Generate the token
+        const token = signToken(newUser);
 
         // const token = JWT.sign(
         //     {
@@ -66,5 +66,7 @@ module.exports = {
     /* ACCESS GRANTED CONTROLLER */
     accessGranted: async (req, res, next) => {
         // console.log('UsersController.acessGranted() called!');
+        console.log("Passport took me here!");
+        res.json({ accessGranted: "Authorized." });
     },
 };

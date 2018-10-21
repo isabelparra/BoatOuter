@@ -6,7 +6,7 @@ const User = require("./models/user");
 
 passport.use(new JWTStrategy({
     jwtFromRequest:ExtractJwt.fromHeader("authorization"),
-    secretOrKey: "code"
+    secretOrKey: JWT_SECRET
 }, async (payload, done) => {
     try {
 
