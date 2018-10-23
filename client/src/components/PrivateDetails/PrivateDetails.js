@@ -10,52 +10,52 @@ import Reviews from "../Reviews";
 import jump from "../../assets/images/jump.jpeg";
 const PrivateDetails = props => (
 <div id="details"> 
-{/* <Grid id="grid">
-    <Row className="">
-        <Col> */}
+<Grid id="grid">
+    <Row>
+        <Col md={6} xs={12}> 
             <img id="detailsImg" src={sail}/>     
-        {/* </Col>
+       </Col>
 
-        <Col>  */}
+        <Col md={6} xs={12}> 
             <div>
                 <h1>PRIVATE</h1>  
                 <h4>Ride along with a private captain and certified users</h4>
                 <p>Choose your preference. We'll do the rest.</p>  
                 {/* <Col> */}
                 <div id="detailsColumns">
-                <div className="detailsCol">
+                    <div className="detailsCol">
+                        <img id="detailsIcon" src={icon}/>
+                        <p>Enjoy a boat day for as little as $50</p>
+                        <p>Split the cost with users</p>
+                    </div>
+                {/* </Col>
+                <Col> */}
+                    <div className="detailsCol">
+                        <img id="detailsIcon" src={icon}/>
+                            <p>Enjoy a boat day for as little as $50</p>
+                            <p>Split the cost with users</p>
+                    </div>
+                    {/* </Col>
+                    <Col> */}
+                    <div className="detailsCol">
                     <img id="detailsIcon" src={icon}/>
-                    <p>Enjoy a boat day for as little as $50</p>
-                    <p>Split the cost with users</p>
-                </div>
-                {/* </Col>
-                <Col> */}
-                <div className="detailsCol">
-                <img id="detailsIcon" src={icon}/>
-                    <p>Enjoy a boat day for as little as $50</p>
-                    <p>Split the cost with users</p>
-                </div>
-                {/* </Col>
-                <Col> */}
-                <div className="detailsCol">
-                <img id="detailsIcon" src={icon}/>
-                    <p></p>
-                    <p>Split the cost with users</p>
-                </div>
+                        <p></p>
+                        <p>Split the cost with users</p>
+                    </div>
                 </div>
             </div> 
-        {/* </Col>
+        </Col>
     </Row>
+
     <Row>
-    
-        <Col size="12"> */}
+        <Col size="12"> 
         <div id="reviews">
         <Reviews></Reviews>
         </div>
-        {/* </Col>
+        </Col>
     </Row>
     <Row>
-        <Col> */}
+        <Col>
         <div id="main-about">
             <img id="sideImg" src={jump}></img>
             
@@ -65,9 +65,9 @@ const PrivateDetails = props => (
             </div>
         </div>
         
-        {/* </Col>
+        </Col>
     </Row>
-</Grid>  */}
+</Grid>  
 </div>
 
 );
