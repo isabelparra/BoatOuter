@@ -12,35 +12,35 @@ const PrivateDetails = props => (
 <div id="details"> 
 <Grid id="grid">
     <Row>
-        <Col md={6} xs={12}> 
+        <Col md={6} s={6} xs={12}> 
             <img id="detailsImg" src={sail}/>     
        </Col>
 
         <Col md={6} xs={12}> 
             <div>
                 <h1>PRIVATE</h1>  
-                <h4>Ride along with a private captain and certified users</h4>
-                <p>Choose your preference. We'll do the rest.</p>  
+                <h4>Boat on your terms</h4>
+                <p>Charter your own private boat.</p>  
                 {/* <Col> */}
                 <div id="detailsColumns">
                     <div className="detailsCol">
                         <img id="detailsIcon" src={icon}/>
-                        <p>Enjoy a boat day for as little as $50</p>
-                        <p>Split the cost with users</p>
+                        <p>Know your price</p>
+                        <p></p>
                     </div>
                 {/* </Col>
                 <Col> */}
                     <div className="detailsCol">
                         <img id="detailsIcon" src={icon}/>
-                            <p>Enjoy a boat day for as little as $50</p>
-                            <p>Split the cost with users</p>
+                            <p>Book Instantly</p>
+                            <p></p>
                     </div>
                     {/* </Col>
                     <Col> */}
                     <div className="detailsCol">
                     <img id="detailsIcon" src={icon}/>
+                        <p>Pay Less Guaranteed</p>
                         <p></p>
-                        <p>Split the cost with users</p>
                     </div>
                 </div>
             </div> 
@@ -67,6 +67,7 @@ const PrivateDetails = props => (
         
         </Col>
     </Row>
+  
 </Grid>  
 </div>
 

@@ -13,10 +13,12 @@
 } */
 
 #boatImg {
+    /* position: absolute; */
     background-size: cover;
-    background-position: center;
-    height: 250px;
-    width: 400px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
     overflow: hidden; 
     /* width: 300px; */
 

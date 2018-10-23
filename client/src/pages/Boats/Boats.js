@@ -116,7 +116,7 @@ handleInputChange = event => {
     //   <gridInstance>
     //    boat
     // </gridInstance>
-    <Grid className="container-fluid">
+    <Grid className="container-fluid boats">
     <Row className="show-grid">
       {this.state.boats.map(boat => ( 
         <Col xs={12} md={5}>       
