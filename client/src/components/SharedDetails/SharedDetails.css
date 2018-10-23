@@ -6,5 +6,24 @@ h1, h4, p {
 }
 
 #detailsIcon {
-    max-width: 50px;
+    max-width: 75px;
+}
+
+.detailsCol {
+    float: left;
+}
+
+#reviews {
+    background-color: #64B7D1;
+    display: inline-block;
+  }
+
+  #grid {
+      
+      width: 100%;
+  }
+  
+  #detailsImg {
+    height: 500px;
+    width: auto;
 }

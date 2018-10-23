@@ -1,15 +1,21 @@
 .footer {
-    min-height: 100px;
-    position: relative;
-    text-align: center;
+    /* min-height: 1000px; */
+    /* position: relative;
+    
+    text-align: center; */
+    display: block;
+   
+    
   }
   
   .footer span {
+    padding-top: 4em;
+    padding-bottom: 4em;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 3px;
+    /* padding: 3px; */
     background: white;
   }
   

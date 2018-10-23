@@ -1,10 +1,13 @@
+html, body {
+  height: 100%;
+}
+
 /* .App {
   text-align: center;
 } */
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/* .main-container {
+  margin: 0px;
 } */
 
 /* .App-header {
@@ -28,8 +31,9 @@
   float: left;
   width: 50%;
   text-align: center;
-  padding: 75px;
+  padding: 50px;
   border: 0px;
+  /* border-top: 5px solid #84d4e7; */
 }
 
 #private {
@@ -38,12 +42,22 @@
   float: right;
   width: 50%;
   text-align: center;
-  padding: 75px;
+  padding: 50px;
   border: 0px;
+  /* border-top: 5px solid #64b7d1; */
 }
 
+/* #grid, .container {
+  padding: 0px;
+  margin: 0;
+  width: 100%;
+ 
+} */
+/* #main-container {
+  width: 100%;
+} */
 
-
-
-
+#reviews {
+  text-align: center;
+}
 

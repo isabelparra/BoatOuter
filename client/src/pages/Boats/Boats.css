@@ -1,0 +1,22 @@
+
+#refineSearch {
+    position: relative;
+    padding-top: 1em;
+    /* height: calc(100vh - 70px) !important; */
+    /* margin-right: 10px;
+    width: 30%; */
+    /* width: 200px; */
+    /* padding: 20px; */
+    position: fixed !important;
+    display: block;
+    right: 0;
+    top: 70px !important;
+    margin: 0px auto;
+  }
+
+#dateSelect, #partySize, #selectActivity {
+    float: right;
+    margin-right: 25px;
+    width: 200px;
+
+}

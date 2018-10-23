@@ -1,0 +1,232 @@
+/* #carousel { */
+    /* width: 900px; 
+    height: 500px; */
+    /* margin: auto; */
+    /* display: flex; */
+    /* height: 10vh; */
+    /* min-height: 300px;
+    /* max-height: 400px; */
+    /* overflow: hidden; */
+    /* background-position: center; */
+/* } */
+
+.carouselItem {
+    height: 360px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+}
+
+p {
+    font-family: 'Roboto:300', sans-serif;
+    font-size: 1.25em;
+}
+
+.CarImg {
+    height: 500px;
+    width: auto;
+    /* background-position: center; */
+    overflow: hidden;
+}
+
+.form-group {
+    /* margin-bottom: 0px;
+    margin-top: 0px; */
+    margin: 0 auto;
+    /* padding: auto 0px; */
+}
+
+.form-control {
+    /* display: inline; */
+    
+}
+.input {
+    margin: 0px auto;
+}
+
+.caption {
+     position: absolute;
+     right: 15%;
+     left: 15;
+     bottom: 200px;
+   
+}
+
+
+#searchForm {
+    background-color: #64b7d1;
+    /* width: 100%; */
+    border: 0px;
+    /* float: left; */
+    /* padding: 0 200px 10px 200px; */
+    /* display: block;
+    margin: 10px auto; */
+
+}
+
+#dateSelect, #partySize, #selectActivity {
+   float: left;
+   background-color: #64b7d1;
+   color: white;
+   border: 0px;
+
+   text-align: center;
+   width: 150px;
+   padding: 5px;
+}
+
+#formRow {
+    background-color: #64b7d1;
+    margin: 0 auto;
+    /* width: 100%; */
+
+}
+
+
+.container {
+    padding: 0px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0px;
+    }
+ 
+}
+
+@media (min-width: 992px) {
+    .container {
+    width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .carousel {
+    width: auto;
+    height: auto;
+    }
+}
+
+/* .main {
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+}
+
+#row {
+    width: 100%;
+} */
+/* 
+#main-carousel {
+    width: 100%;
+    padding: 0px;
+} */
+
+
+
+#searchBttn {
+    display: inline;
+    background: none;
+    color: white;
+    border: 0px;
+}
+/* @media screen and (max-width: 360px) {
+    #dateSelect,
+    #partySize,
+    #selectActivity {
+
+    
+    /* vertical-align: middle; */
+
+@media screen and (max-width: 760px) {
+    /* #detailsImg {
+        width: 760px;
+        overflow: hidden;
+    } */
+}
+    /* #dateSelect, #partySize, #selectActivity {
+    } */
+    /* display: inline-block;
+
+    
+/* @media screen and (min-width: 760px) {
+    #dateSelect {
+    width: 30%;
+    float: left;
+    height: 30px; 
+}
+
+#partySize {
+ width: 30%;
+    float: left;
+    height: 30px; 
+}
+
+#selectActivity {
+    width: 30%;
+    height: 30px; 
+} 
+} */
+
+@media screen and (max-width: 360px) {
+    /* .carouselItem {
+       
+    } */
+    #carousel {
+        height: 200px;
+    }
+    #detailsImg {
+        width: auto;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    #searchForm {
+        background-color: #64b7d1;
+        /* width: 100%; */
+        border: 0px;
+        /* float: left; */
+        padding: 0px;
+        display: block;
+        margin: 0 auto;
+
+    
+    }
+    .caption {
+        margin: 0;
+        position: absolute;
+     
+    }
+    /* h1 {
+        font-size: 28px;
+    } */
+    .CarImg {
+        max-height: 300px;
+        overflow: hidden;
+    }
+    p {
+        font-size: 14px; 
+    }
+    #dateSelect, #partySize, #selectActivity {
+        /* float: left; */
+        height: 28px;
+        width: 300px;
+        font-size: 14px;
+        border: 1px solid white;
+    }
+
+    #searchForm { 
+        /* background: white; */
+        padding: 0px;
+        text-align: center;
+
+    }
+    /* .carousel-inner {
+        height: 400px;
+    } */
+   
+    
+ 
+}

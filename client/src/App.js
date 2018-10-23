@@ -7,7 +7,15 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
+import { Grid } from "react-bootstrap";
+import Wrapper from "./components/Wrapper"
+import { Container } from './components/Grid';
 
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faGhost } from '@fortawesome/free-solid-svg-icons'
+
+// library.add(faGhost)
 
 // class App extends Component {
 //   state = {
@@ -61,8 +69,8 @@ const App = () => (
           <Route exact path="/about" component={About} />
           <Route component={NoMatch} />
         </Switch>
-      <Footer />
-    </div>
+        {/* <Footer /> */}
+      </div>
   </Router>
 );
 

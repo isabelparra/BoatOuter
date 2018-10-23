@@ -1,0 +1,34 @@
+#grid { 
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#detailsImg {
+    height: 500px;
+    width: auto;
+    float: left;
+}
+
+#sideImg {
+    height: 500px;
+    width: auto;
+    float: right;
+}
+
+#about-caption {
+    float: left;
+}
+
+.detailsCol {
+    float: left;
+}
+
+#detailsIcon {
+    max-width: 50px;
+}
+
+#detailsColumns {
+    position: relative;
+    margin: auto;
+}
