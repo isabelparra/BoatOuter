@@ -111,11 +111,11 @@ class Home extends Component {
           </div>
           <div id="searchForm">
           <Form id="" onSubmit={this.handleFormSubmit}>
-  {/* <div id="search">    */}
-    <FormGroup className="input">
-    {/* controlId="formInline" */}
+
+    <FormGroup className="form-group">
+ 
       <FormControl 
-      // <Input
+   
         value={this.state.date}
         onChange={this.handleInputChange}
         name="date"

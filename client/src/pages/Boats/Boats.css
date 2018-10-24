@@ -14,11 +14,12 @@
     right: 0;
     top: 70px !important;
     margin: 0px auto;
+    background: black;
   }
 
 #dateSelect, #partySize, #selectActivity {
     float: right;
-    margin-right: 25px;
-    width: 200px;
+    margin-right: 15px;
+    width: 255px;
 
 }

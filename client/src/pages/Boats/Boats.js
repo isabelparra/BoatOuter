@@ -1,208 +1,237 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import BoatCard from "../../components/BoatCard";
-// import { Container } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 // import { gridInstance } from "../../components/gridInstance";
 import API from "../../utils/API";
 import { Grid, Row, Col, Form, FormControl, FormGroup, Button } from "react-bootstrap";
-import SearchForm from "../../components/SearchForm";
 // import "../../App.css"
 import "./Boats.css"
+import SearchForm from "../../components/SearchForm";
+import FilteredBoats from "../../components/FilteredBoats";
+import Select from "react-select";
+import SearchResults from "../../components/SearchResults";
+import Jumbotron from "../../components/Jumbotron";
+import { List, ListItem } from "../../components/List";
+
+// const options = [
+//   { value: "1", label: "1 passenger" },
+//   { value: "2", label: "2 passengers" },
+//   { value: "3", label: "3 passenger" }
+// ];
+
+
+
 class Boats extends Component {
   state =  {
-    boats: [],
-    package: "",
-    date: "",
-    passengers: "",
-    activity: "",
-    search: ""  
+ 
+ search: "",
+ boat: {},
+ boats: [],
+ results: [],
+ activity: ""
   };
 
+    //   search: "",
+    //   boats: [],
+    //   package: "",
+    //   date: "",
+    //   passengers: "",
+    //   activitySelect: null,
+    //   results: [], 
+    //   error: ""
+    // };
+  // }
+
 componentDidMount() {
-  API.getBoats()
-  .then(res => {
-    console.log(res);
-    this.setState ({ boats: res.data });
-  });
   this.loadBoats();
 }
 
 loadBoats = () => {
   API.getBoats()
-  .then(res => {
-    console.log(res);
-    this.setState ({ boats: res.data, package: "", date: "", passengers: "", activity: "" })
-  })
+  .then(res => this.setState ({ boats: res.data, activity: "" }))
   .catch(err => console.log(err));
-};
-
-handleInputChange = event => {
-  const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-};
-
-// handleFormSubmit = event => {
-//   event.preventDefault();
-  //   API.loadNewSearch({
-  //     package: this.state.package,
-  //     date: this.state.date
-  //   })
-  // .then(res => {
-  //   console.log(res);
-  //   this.setState ({ boats: res.data });
-  // };
-// }
-
-
-// var FilteredBoats = React.createClass({
-//   filterSearch: function(event) {
-//   var updatedSearch = this.state.initialSearch;
-//   updatedSearch = updatedList.filter(function(boat){
-//     return boat.search(event.target.value) !== -1;
-//   });
-//   this.setState({boats: updatedSearch});
-// }, 
-// getInitialState: function(){
-//   return {
-//     initalSearch: [],
-//     boats: []
-    
-//   }
-// },
-// componentWillMount: function(){
-//   this.setState({boat: this.state.initalSearch})
-// },
-// render: function(){
-//   return(
-//     <div className="filter-boat">
-// <SearchForm
-// onChange={this.filterSearch}/>
-// <Boat boat={this.state.boat}/>
-//     </div>
-//   );
-// }
-// });
-
-// var Boat = React.createClass({
-//   render: function(){
-//     return (
-//       <ul className="boat-group">
-//       {this.props.boats.map(function(boat) {
-//         return <li className="list-group-item" data-category={boat} key={boat}>{boat}</li>
-//       })
-//       }
-//       </ul>
-      
-//     )
-//   }
-// });
-
-// componentDidMount() {
-//   API.getBoats(this.props.match.params.id)
-//   .then(res => this.setState({ boat: res.data}))
+}
+//    API.getBoats()
+//   .then(res => this.setState({ boats: res.data.message }))
 //   .catch(err => console.log(err));
+//   }
+
+  // componentDidMount() {
+  //   API.getBoats(this.props.match.params.activity)
+  //  .then(res => this.setState({ boats: res.data }))
+  //  .catch(err => console.log(err));
+  //  }
+
+
+
+
+
+
+ handleInputChange = event => {
+   const { name, value } = event.target;
+   this.setState({ [name]: value 
+  });
+  //  console.log(activitySelect);
+ };
+//   console.log(e.target.value);
+//   var value = this.state.optionsdata.filter(function(boat) {
+//     return boat.key == e.target.value
+//   })
+//   console.log(value[0].value);
 // }
+
+// filterBoats = (FilteredBoats) => {
+//   let search = this.state.boats
+//   search = search.filter((boat) => {
+//     let boatDate = boat.date.toString() 
+//     return date.indexOf(
+//       FilteredBoats) !== -1
+//     }
+//     )
+//     this.setState({
+//       search
+//     })
+ 
+// }
+
+
+    // boats = data.res.map((boat) => {
+      // return(
+//         <div key={boat.activity}>
+        
+//         </div>
+//       )
+//     })
+//     this.setState({boats: boats});
+//     console.log("state", this.state.boats);
+//   })
+// }
+
+
+
+//  handleInputChange = (activitySelect) => {
+//    this.setState({ activitySelect });
+//    console.log(activitySelect);
+//  }
+
+//   const { name, value } = event.target;
+//   //  consolelog(e.target.value);
+//   //  var value = this.state.opt
+//    this.setState({ [name]: value });
+//  };
+
+handleFormSubmit = event => {
+//  const searchType = event.target.attributes.getNamedItem("data-value").value;
+// const newState = { ...this.state };
+
+//  if (searchType === "activity") {
+//  newState.match = ;
+
+//   } else {
+//     newState.match = false;
+//   }
+ event.preventDefault();
+API.searchBoats(this.state.search)
+.then(res => { 
+if (res.data.status === "error") {
+ throw new Error(res.data.message);
+ }
+  // console.log(res);
+  this.setState ({ results: res.data.message, error: "" });
+})
+.catch(err => this.setState({ error: err.message }));
+
+ };
+
+   // const { name, value } = event.target;
+//  this.setState({ newState });
+//  this.newSearch();
+// };
+
+
+// newSearch = () => {
+//   API.searchBy()
+//   .then(res =>
+//     this.setState({
+//       boats: res.data.message
+//     })
+//     )
+//     .catch(err => console.log(err));
+// };
+
+//  handleFormSubmit = event => {
+//   event.preventDefault(); 
+//  API.searchBoats(this.state.search)
+ 
+//   //  package: this.state.package,
+//   // date: this.state.date
+// .then(res =>  
+//   if (res.data.status === "error") {
+//     throw new Error(res.data.activity);
+//   }
+//   // console.log(res);
+//   this.setState ({ boats: res.data }))
+//  .catch(err => console.log(err));
+// };
+
+
+
+
+
+
+// componentDidMount() { */}
+  /* API.getBoats(this.props.match.params.id)
+  .then(res => this.setState({ boat: res.data}))
+  .catch(err => console.log(err));
+} */
 
   render() {
+    
     return (
-      
-      // <FilteredBoats/>
-      
-    //   <gridInstance>
-    //    boat
-    // </gridInstance>
-    <Grid className="container-fluid boats">
-    <Row className="show-grid">
-      {this.state.boats.map(boat => ( 
-        <Col xs={12} md={5}>       
+
+      <Container>
+
+  
+        <SearchForm
+        handleFormSubmit={this.handleFormSubmit}
+        handleInputChange={this.handleInputChange}
+        boats={this.state.boats}
+        // name="search"
+        // value={this.state.search}
+        /> 
+  
+            
+     
+        
+        
+        
+      <Jumbotron>
+        <h1>Results</h1>
+      </Jumbotron>
+{/*       
+        <SearchResults
+        results={this.state.results}
+        /> */}
+        {/* <List>
+        {this.state.results.map(boat => ( */}
           <BoatCard
-            key={boat._id}
-            boat={boat}
-            />
-          </Col>
-        ))}  
-        <Col>
-       <div id="refineSearch">
-       {/* <SearchForm
-       className="refine"
-       > */}
-       <Form>
-       <FormGroup className="input">
-       <FormControl 
-      // <Input
-        // value={this.state.date}
-        // onChange={this.handleInputChange}
-        name="date"
-        list="dates"
-        type="date"
-        placeholder="Trip Date"
-        id="dateSelect"
-        />
-    </FormGroup>{' '}
-    <FormGroup className="input">         
-      <FormControl componentClass="select"         
-        // value={this.state.passengers}
-        // onChange={this.handleInputChange}
-        name="passengers"
-        placeholder="Party Size"
-        id="partySize">
-        <option value="Party Size">Party Size</option>
-        <option value="1">1 passenger</option>
-        <option value="2">2 passengers</option>
-        <option value="3">3 passengers</option>
-        <option value="4">4 passengers</option>
-        <option value="5">5 passengers</option>
-        <option value="6">6 passengers</option>
-        <option value="7">7 passengers</option>
-        <option value="8">8 passengers</option>
-        <option value="9">9 passengers</option>
-        <option value="10">10 passengers</option>
-        <option value="11">11 passengers</option>
-        <option value="12">12+ passengers</option>               
-      </FormControl>
-    </FormGroup>{' '}
-    <FormGroup class="input">
-    {/* <ControlLabel>Select Activity</ControlLabel> */}
-      <FormControl componentClass="select" placeholder="select"
-      // <select 
-        // defaultValue={this.state.activity} 
-        // onChange={this.handleChange} 
-        name='activity'
-        id="selectActivity"
-      >
-      <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
-      <option value="Cruising">Cruising</option>
-      <option value="Fishing">Fishing</option>
-      <option value="Watersports">Watersports</option>
-      {/* </select> */}
-      </FormControl>     
-    </FormGroup>{' '}
-    {/* <Button inline
-      type="submit"
-      id="searchBttn"
-      // onClick={this.props.handleFormSubmit}
-    >
-      <i className="fas fa-search"></i>
-    </Button> */}
-
-
-       </Form>
-       
-      
-        </div>
-        </Col>   
-    </Row>
-</Grid>
-
-      
-    );
+          key={this.state.boat._id}
+          boat={this.state.boat}
+          />
+        {/* ))} */}
+        {/* </List> */}
+     
+          </Container>
+          );
+              }
+          
   }
-}
+          
+ 
+
+
 
 
 

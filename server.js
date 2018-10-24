@@ -1,5 +1,7 @@
 const express = require('express');
+const parseurl = require('parseurl');
 const bodyParser = require("body-parser");
+const path = require('path');
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -15,8 +17,13 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// app.get('/api/boats', (req, res) => {
-//   res.send({ express: 'Hello From Express' });
+// app.get('/boats', function(req, res) {
+//   res.redirect('/api/boats');
+// });
+
+// app.use(function(req, res, search) {
+//   console.log('refining search...');
+//       search();
 // });
 
 // Connect to the Mongo DB
