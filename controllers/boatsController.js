@@ -5,16 +5,16 @@ module.exports = {
   findAll: function(req, res) {
     db.Boats
       .find(req.query)
-      // .sort({ date })
+      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function(req, res) {
-  //   db.boatOuter
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findByActivity: function(req, res) {
+    db.boatOuter
+      .findByActivity(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Boats
       .create(req.body)

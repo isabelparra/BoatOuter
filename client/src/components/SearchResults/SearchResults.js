@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchResults.css";
-import { Container, Col } from "../../components/Grid";
+import { Grid, Row, Col } from "react-bootstrap";
 import BoatCard from "../../components/BoatCard";
 const SearchResults = props => (
   // <ul className="list-group search-results">
@@ -10,18 +10,25 @@ const SearchResults = props => (
   //     </li>
   //   ))}
   // </ul>
-  <div className="list-group">
-  {props.results.map(result => (   
+
+      <Grid className="container-fluid">
+        <Row className="show-grid">
+  
+  {props.results.map(boat => (   
    <Col xs={12} md={5}>       
       <BoatCard
-      key={result}
-      src={result}
+      key={boat._id}
+      boat={boat}
       />  
      </Col>
+  ))}
+     </Row>
+     </Grid>
 
-    ))}
-    </div>
-   
-);
+    )
+
+
+ 
+    
 
 export default SearchResults;

@@ -3,11 +3,14 @@ import axios from "axios";
 export default {
 
   // Search Boats
-  searchByCapacity: function(partySize) {
-    return axios.get("/api/boats/" + partySize + "/passengers");
-  },
-  searchBoats: function(query) {
-    return axios.get("/api/boats", { params: { q: query } });
+  // searchByCapacity: function(partySize) {
+  //   return axios.get("/api/boats/" + partySize + "/passengers");
+  // },
+  // searchBoats: function(query) {
+  //   return axios.get("/api/boats/", { params: { q: query } });
+  // },
+  searchBoats: function(newSearch) {
+    return axios.get("/api/boats/", { params: { newSearch } } );
   },
 
   
@@ -22,7 +25,7 @@ export default {
   //     search();
   //   })
   // Gets all boats
-  getBoats: function() {
-    return axios.get("/api/boats");
+  loadSearch: function() {
+    return axios.get("/api/boats/");
   }
 };

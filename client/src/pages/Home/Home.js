@@ -72,7 +72,7 @@ class Home extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     // debugger;
-    if (this.state.package && this.state.date && this.state.passengers) {
+    if (this.state.package || this.state.date || this.state.passengers) {
     this.props.history.push('/boats', {
       pathname: '/boats',
       state:

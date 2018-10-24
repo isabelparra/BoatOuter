@@ -10,12 +10,13 @@ import Input from "../../components/Input";
 
 import { withRouter } from 'react-router-dom';
 // import PropTypes from "prop-types";
-// import BoatCard from "../../components/BoatCard";
+import BoatCard from "../../components/BoatCard";
 // import { Container } from "../../components/Grid";
 // // import { gridInstance } from "../../components/gridInstance";
 import API from "../../utils/API";
 
-// import { Grid, Row, Col, Form, FormControl, FormGroup, Button } from "react-bootstrap";
+import { Grid, Row, Col, Form, FormControl, FormGroup } from "react-bootstrap";
+import SearchResults from "../../components/SearchResults/SearchResults";
 // import "../../App.css"
 // import "./Boats.css"
 // import SearchForm from "../../components/SearchForm";
@@ -45,6 +46,7 @@ class Boats extends Component {
         date: "",
         activity: [],
         passengers: "",
+        results: []
 
       },
       packageOptions: ["Shared", "Private"],
@@ -57,7 +59,7 @@ class Boats extends Component {
   }
 
   // handleSearch(e) {
-  //   let value = e.target.value;
+  //   let value = e.target.value;  
   //   this.setState(
   //     prevState => ({
   //       newSearch: {
@@ -81,25 +83,30 @@ class Boats extends Component {
     // };
   // }
 
-// componentDidMount() {
-//   this.loadBoats();
-// }
+componentDidMount() {
+  this.loadBoats();
+}
 
-// loadBoats = () => {
-//   API.getBoats()
-//   .then(res => this.setState ({ boats: res.data.message }))
-//   .catch(err => console.log(err));
-// }
-//    API.getBoats()
-//   .then(res => this.setState({ boats: res.data.message }))
-//   .catch(err => console.log(err));
-//   }
+loadBoats = () => {
+  API.loadSearch()
+  .then(res => this.setState({ boats: res.data.message }))
+  .catch(err => console.log(err));
+}
+  //  API.getBoats()
+  // .then(res => this.setState({ boats: res.data.message }))
+  // .catch(err => console.log(err));
+  // };
 
   // componentDidMount() {
-  //   API.getBoats(this.props.match.params.activity)
-  //  .then(res => this.setState({ boats: res.data }))
+  //   API.getBoats()
+  //  .then(res => this.setState({ boats: res.data.message }))
   //  .catch(err => console.log(err));
   //  }
+
+  //   handleInputChange = event => {
+  // //  const { name, value } = event.target;
+  //  this.setState({ newSearch: event.target.value  });
+  // };
 
 
 handlePassengers(e) {
@@ -150,10 +157,7 @@ handleCheckBox(e) {
 
 
 
-//  handleInputChange = event => {
-//   //  const { name, value } = event.target;
-//    this.setState({ search: event.target.value  });
-//   };
+
   //  console.log(activitySelect);
 
 //   console.log(e.target.value);
@@ -203,25 +207,49 @@ handleCheckBox(e) {
 //    this.setState({ [name]: value });
 //  };
 
-handleFormSubmit(e) {
-  e.preventDefault();
+handleFormSubmit = event => {
+  event.preventDefault();
   // alert('the value is:' + this.input.value);
-  let userData = this.state.newSearch;
-
-  fetch("/api/boats", {
-    method: "POST",
-    body: JSON.stringify(userData),
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    }
-  }).then(response => {
-    response.json().then(data => {
-      console.log("succesful search" + data);
-    });
-  });
+  // let userData = this.state.newSearch;
+  // this.renderResults();
+  // (userData)
+  API.searchBoats(this.state.newSearch)
+    // date: this.state.date,
+    // package: this.state.package,
+    // passengers: this.state.passengers,
+    // activity: this.state.activity
   
-}
+
+    
+  // ("/api/boats/", {
+  //   method: "GET",
+  //   body: JSON.stringify(userData)
+    // headers: {
+    //   Accept: "application/json",
+    //   "Content-Type": "application/json"
+    // }
+  .then(res => {
+    if (res.data.status == "error") {
+      throw new Error(res.data.message);
+    }
+    this.setState({ results: res.data.message, error: ""});
+  })
+    // this.loadBoats()
+   .catch(err => this.setState({ error: err.message }));
+
+
+};
+    
+    
+  
+    // response.json().then(data => {
+    //   console.log("Succesful Search" + data);
+    //   this.loadBoats();
+    // }))
+
+    
+  
+  
   // let userData = this.state.newSearch;
 
   // fetch("api/boats/search", {
@@ -298,6 +326,7 @@ handleFormSubmit(e) {
 
   render() {
     return (
+      <div>
       <form className="container-fluid" onSubmit={this.handleFormSubmit}>
       <CheckBox
       title={"Package"}
@@ -307,7 +336,9 @@ handleFormSubmit(e) {
       placeholder={"Select Package Type"}
       handleChange={this.handleInput}
       />{" "}
+
       {/* Party Size */}
+
       <Input
       inputType={"number"}
       name={"passengers"}
@@ -316,7 +347,9 @@ handleFormSubmit(e) {
       placeholder={"Enter your party size"}
       handleChange={this.handlePassengers}
       />{" "}
+
       {/* Activity Selection */}
+
       <Select
       title={"Activity"}
       name={"activity"}
@@ -330,32 +363,16 @@ handleFormSubmit(e) {
       action={this.handleFormSubmit}
       type={"primary"}
       title={"Submit"}
-      // style={buttonStyle}
+      style={buttonStyle}
       />{" "}
     
       </form>
-
-      // <Container>
-
-  
-      //   <SearchForm
-      //   handleFormSubmit={this.handleFormSubmit}
-      //   handleInputChange={this.handleInputChange}
-      //   boats={this.state.boats}
-        // name="search"
-        // value={this.state.search}
-        // />
-        
-        
-       
-            
-     
-        
-    
-  
-    );
+      </div>
+    )
   }
 }
+
+    
 
 const buttonStyle = {
   margin: "10px 10px 10px 10px"
@@ -363,4 +380,4 @@ const buttonStyle = {
 
 
 
-export default withRouter(Boats);
+export default Boats;
