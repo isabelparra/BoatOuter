@@ -1,40 +1,29 @@
 import React, {Component} from "react";
+import { withRouter } from 'react-router-dom'
+import PropTypes from "prop-types";
+
 /* Import Components */
 
-import CheckBox from "../../components/RadioGroup";
+import RadioGroup from "../../components/RadioGroup";
 import Select from "../../components/Select";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-
-import { withRouter } from 'react-router-dom'
-import PropTypes from "prop-types";
-// import Jumbotron from "../../components/Jumbotron";
-// import API from "../../utils/API";
-// import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../../components/Grid";
-// import { List, ListItem } from "../../components/List";
-import Footer from "../../components/Footer";
 import BoatCard from "../../components/BoatCard";
-// import { throws } from "assert";
-// import { AsyncParallelBailHook } from "tapable";
-
 import SharedDetails from "../../components/SharedDetails";
-import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import Reviews from "../../components/Reviews";
-// import SearchForm from "../../components/SearchForm";
 import PrivateDetails from "../../components/PrivateDetails";
-// import ReactBootstrapCarousel from "react-bootstrap-carousel";
-// import "bootstrap/dist/css/bootstrap.css";
-// import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import boat from "../../assets/images/boat.png";
-import carousel from "../../assets/images/carousel.jpeg";
-import preview from "../../assets/images/preview.png";
-import boatpr from "../../assets/images/boatpr.jpeg";
-import a from "../../assets/images/a.jpeg";
-import e from "../../assets/images/e.jpeg";
-import f from "../../assets/images/f.jpeg";
-import a2 from "../../assets/images/a2.jpg";
-import a3 from "../../assets/images/a3.jpg";
+import Reviews from "../../components/Reviews";
+
+import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+
+// import boat from "../../assets/images/boat.png";
+// import carousel from "../../assets/images/carousel.jpeg";
+// import preview from "../../assets/images/preview.png";
+// import boatpr from "../../assets/images/boatpr.jpeg";
+// import a from "../../assets/images/a.jpeg";
+// import e from "../../assets/images/e.jpeg";
+// import f from "../../assets/images/f.jpeg";
+// import a2 from "../../assets/images/a2.jpg";
+// import a3 from "../../assets/images/a3.jpg";
 import w from "../../assets/images/w.jpeg";
 import aa from "../../assets/images/aa.jpeg";
 import a1 from "../../assets/images/a1.jpeg";
@@ -95,124 +84,89 @@ class Home extends Component {
   };
 
   render() {
-  
-  var details;
-
-  if(this.state.package === "Shared"){   
-    details = <SharedDetails></SharedDetails>     
-  } else {
-    details = <PrivateDetails></PrivateDetails>
-  }
-  //  } else {
-  //    details = <Reviews></Reviews>
-  //  }
+    var details;
+      if(this.state.package === "Shared"){   
+        details = <SharedDetails></SharedDetails>     
+      } 
+      else {
+        details = <PrivateDetails></PrivateDetails>
+      }
     return (
-      // <div>
-        /* <Grid className='main'>
-         <Row id="row">
-         <Col> */
-         <Grid>
-          {this.renderCarousel()}
+      <Grid>
+        {this.renderCarousel()}
+        <div id='packageType'>
+          <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
+          <button id='private' onClick={this.handlePrivateClicked}>Private</button>
+        </div>
 
-          <div id='packageType'>
-            <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
-            <button id='private' onClick={this.handlePrivateClicked}>Private</button>
-          </div>
-
-  <div id="searchForm">
-    <Form id="" onSubmit={this.handleFormSubmit}>
-      <FormGroup className="form-group">
-      <FormControl 
-        value={this.state.date}
-        onChange={this.handleInputChange}
-        name="date"
-        list="dates"
-        type="date"
-        placeholder="Trip Date"
-        id="dateSelect"
-        />
-      </FormGroup>{' '}
-      <FormGroup className="input">         
-        <FormControl componentClass="select"         
-          value={this.state.passengers}
-          onChange={this.handleInputChange}
-          name="passengers"
-          placeholder="Party Size"
-          id="partySize">
-          <option value="Party Size">Party Size</option>
-          <option value="1">1 passenger</option>
-          <option value="2">2 passengers</option>
-          <option value="3">3 passengers</option>
-          <option value="4">4 passengers</option>
-          <option value="5">5 passengers</option>
-          <option value="6">6 passengers</option>
-          <option value="7">7 passengers</option>
-          <option value="8">8 passengers</option>
-          <option value="9">9 passengers</option>
-          <option value="10">10 passengers</option>
-          <option value="11">11 passengers</option>
-          <option value="12">12+ passengers</option>               
-        </FormControl>
-      </FormGroup>{' '}
-      <FormGroup className="input">
-      {/* <ControlLabel>Select Activity</ControlLabel> */}
-        <FormControl componentClass="select" placeholder="select"
-        // <select 
-          defaultValue={this.state.activity} 
-          onChange={this.handleInputChange} 
-          name='activity'
-          id="selectActivity"
-        >
-        <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
-        <option value="Cruising">Cruising</option>
-        <option value="Fishing">Fishing</option>
-        <option value="Watersports">Watersports</option>
-        {/* </select> */}
-        </FormControl>     
-      </FormGroup>{' '}
-      <Button
-        type="submit"
-        id="searchBttn"
-        onClick={this.props.handleFormSubmit}
-      >
-        <i className="fas fa-search"></i>
-      </Button>
-    </Form>
-  </div>
-          <div id="packageDetails">
-            {details}
-          </div>
-         
-          
-          
+        <div id="searchForm">
+          <Form id="" onSubmit={this.handleFormSubmit}>
+            <FormGroup className="form-group">
+              <FormControl 
+                value={this.state.date}
+                onChange={this.handleInputChange}
+                name="date"
+                list="dates"
+                type="date"
+                placeholder="Trip Date"
+                id="dateSelect"
+              />
+            </FormGroup>{' '}
+            <FormGroup className="input">         
+              <FormControl componentClass="select"         
+                value={this.state.passengers}
+                onChange={this.handleInputChange}
+                name="passengers"
+                placeholder="Party Size"
+                id="partySize">
+                <option value="Party Size">Party Size</option>
+                <option value="1">1 passenger</option>
+                <option value="2">2 passengers</option>
+                <option value="3">3 passengers</option>
+                <option value="4">4 passengers</option>
+                <option value="5">5 passengers</option>
+                <option value="6">6 passengers</option>
+                <option value="7">7 passengers</option>
+                <option value="8">8 passengers</option>
+                <option value="9">9 passengers</option>
+                <option value="10">10 passengers</option>
+                <option value="11">11 passengers</option>
+                <option value="12">12+ passengers</option>               
+              </FormControl>
+            </FormGroup>{' '}
+            <FormGroup className="input">
+            {/* <ControlLabel>Select Activity</ControlLabel> */}
+              <FormControl componentClass="select" placeholder="select"
+                defaultValue={this.state.activity} 
+                onChange={this.handleInputChange} 
+                name='activity'
+                id="selectActivity"
+              >
+                <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
+                <option value="Cruising">Cruising</option>
+                <option value="Fishing">Fishing</option>
+                <option value="Watersports">Watersports</option> 
+              </FormControl>     
+            </FormGroup>{' '}
+            <Button
+              type="submit"
+              id="searchBttn"
+              onClick={this.props.handleFormSubmit}
+            >
+              <i className="fas fa-search"></i>
+            </Button>
+          </Form>
+        </div>
+        <div id="packageDetails">
+          {details}
+        </div>
         
-          {/* <div id="reviews">
-          <Reviews></Reviews>
-          </div> */}
-
-
-          
-      {/* <div id="results">
-      { this.state.results.map(boat =>
-      <BoatCard
-      key={boat._id}
-       boat={boat}
-      />
-      )} */}
-      
-      
-    
-       
-
       </Grid>
-   
-  )
+    )
   }
   
-
   renderCarousel = () => {
     return (
-      // <Grid className="main">
       <Carousel id="carousel">
         <Carousel.Item className="carouselItem">
           <img className="CarImg" src={w}/>
@@ -236,10 +190,9 @@ class Home extends Component {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>  
-      // </Grid>  
     );
   }
-  }
+}
   // const buttonStyle = {
   //   margin: "10px 10px 10px 10px"
   // };

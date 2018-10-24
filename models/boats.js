@@ -16,11 +16,4 @@ const boatsSchema = new Schema({
 
 const Boats = mongoose.model("Boat", boatsSchema);
 
-
-// const availabilitySchema = new Schema ({
-//   boat_id: { type:  },
-
-//   date: { type: Date, default: Date.now}
-// })
-
 module.exports = Boats;

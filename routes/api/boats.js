@@ -7,14 +7,8 @@ router.route("/")
   // .catch(err => res.status(422).json(err));
 
 
-// Matches with "/api/boats/:activity"
-router
-  // .route("/:activity")
-  // .get(boatsController.searchActivity)
-//   .put(boatsController.update)
-//   .delete(boatsController.remove);
+// Matches with query
+router.route("/search")
+  .get(boatsController.search)
 
-router
-.route("/search")
-.get(boatsController.search)
 module.exports = router;
