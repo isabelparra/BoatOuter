@@ -1,22 +1,22 @@
 import React from "react";
 
-const CheckBox = props => {
+const RadioGroup = props => {
     return (
         <div className="form-group">
         <label for={props.name} className="form-label">
         {props.title}
         </label>
-        <div className="checkbox">
+        <div className="radiogroup">
         {props.options.map(option => {
             return (
-                <label key={option} className="checkbox-inline">
+                <label key={option} className="inline">
                 <input
                     id={props.name}
                     name={props.name}
                     onChange={props.handleChange}
                     value={option}
                     // checked={props.selectedOptions.indexOf(option) > -1}
-                    type="checkbox"
+                    type="radio"
                     />
                     {option}
 
@@ -30,4 +30,4 @@ const CheckBox = props => {
     );
 };
 
-export default CheckBox;
+export default RadioGroup;

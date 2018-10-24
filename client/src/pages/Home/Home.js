@@ -1,4 +1,11 @@
 import React, {Component} from "react";
+/* Import Components */
+
+import CheckBox from "../../components/RadioGroup";
+import Select from "../../components/Select";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 // import Jumbotron from "../../components/Jumbotron";
@@ -7,11 +14,12 @@ import PropTypes from "prop-types";
 // import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
 import Footer from "../../components/Footer";
+import BoatCard from "../../components/BoatCard";
 // import { throws } from "assert";
 // import { AsyncParallelBailHook } from "tapable";
-import { Input, FormBtn } from "../../components/Form";
+
 import SharedDetails from "../../components/SharedDetails";
-import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
+import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Reviews from "../../components/Reviews";
 // import SearchForm from "../../components/SearchForm";
 import PrivateDetails from "../../components/PrivateDetails";
@@ -57,14 +65,14 @@ class Home extends Component {
 
   handleSharedClicked = () => {
     this.setState({
-      package: 'shared' 
+      package: 'Shared' 
     });
     console.log("Shared Packaged");
   };
 
   handlePrivateClicked = () => {
     this.setState({
-      package: 'private'
+      package: 'Private'
     }); 
     console.log("Private Packaged");
   };
@@ -90,7 +98,7 @@ class Home extends Component {
   
   var details;
 
-  if(this.state.package === "shared"){   
+  if(this.state.package === "Shared"){   
     details = <SharedDetails></SharedDetails>     
   } else {
     details = <PrivateDetails></PrivateDetails>
@@ -99,23 +107,22 @@ class Home extends Component {
   //    details = <Reviews></Reviews>
   //  }
     return (
-      <div>
-        {/* <Grid className='main'>
+      // <div>
+        /* <Grid className='main'>
          <Row id="row">
-         <Col> */}
+         <Col> */
+         <Grid>
           {this.renderCarousel()}
 
           <div id='packageType'>
             <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
             <button id='private' onClick={this.handlePrivateClicked}>Private</button>
           </div>
-          <div id="searchForm">
-          <Form id="" onSubmit={this.handleFormSubmit}>
 
-    <FormGroup className="form-group">
- 
+  <div id="searchForm">
+    <Form id="" onSubmit={this.handleFormSubmit}>
+      <FormGroup className="form-group">
       <FormControl 
-   
         value={this.state.date}
         onChange={this.handleInputChange}
         name="date"
@@ -124,75 +131,84 @@ class Home extends Component {
         placeholder="Trip Date"
         id="dateSelect"
         />
-    </FormGroup>{' '}
-    <FormGroup className="input">         
-      <FormControl componentClass="select"         
-        value={this.state.passengers}
-        onChange={this.handleInputChange}
-        name="passengers"
-        placeholder="Party Size"
-        id="partySize">
-        <option value="Party Size">Party Size</option>
-        <option value="1">1 passenger</option>
-        <option value="2">2 passengers</option>
-        <option value="3">3 passengers</option>
-        <option value="4">4 passengers</option>
-        <option value="5">5 passengers</option>
-        <option value="6">6 passengers</option>
-        <option value="7">7 passengers</option>
-        <option value="8">8 passengers</option>
-        <option value="9">9 passengers</option>
-        <option value="10">10 passengers</option>
-        <option value="11">11 passengers</option>
-        <option value="12">12+ passengers</option>               
-      </FormControl>
-    </FormGroup>{' '}
-    <FormGroup className="input">
-    {/* <ControlLabel>Select Activity</ControlLabel> */}
-      <FormControl componentClass="select" placeholder="select"
-      // <select 
-        defaultValue={this.state.activity} 
-        onChange={this.handleChange} 
-        name='activity'
-        id="selectActivity"
+      </FormGroup>{' '}
+      <FormGroup className="input">         
+        <FormControl componentClass="select"         
+          value={this.state.passengers}
+          onChange={this.handleInputChange}
+          name="passengers"
+          placeholder="Party Size"
+          id="partySize">
+          <option value="Party Size">Party Size</option>
+          <option value="1">1 passenger</option>
+          <option value="2">2 passengers</option>
+          <option value="3">3 passengers</option>
+          <option value="4">4 passengers</option>
+          <option value="5">5 passengers</option>
+          <option value="6">6 passengers</option>
+          <option value="7">7 passengers</option>
+          <option value="8">8 passengers</option>
+          <option value="9">9 passengers</option>
+          <option value="10">10 passengers</option>
+          <option value="11">11 passengers</option>
+          <option value="12">12+ passengers</option>               
+        </FormControl>
+      </FormGroup>{' '}
+      <FormGroup className="input">
+      {/* <ControlLabel>Select Activity</ControlLabel> */}
+        <FormControl componentClass="select" placeholder="select"
+        // <select 
+          defaultValue={this.state.activity} 
+          onChange={this.handleInputChange} 
+          name='activity'
+          id="selectActivity"
+        >
+        <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
+        <option value="Cruising">Cruising</option>
+        <option value="Fishing">Fishing</option>
+        <option value="Watersports">Watersports</option>
+        {/* </select> */}
+        </FormControl>     
+      </FormGroup>{' '}
+      <Button
+        type="submit"
+        id="searchBttn"
+        onClick={this.props.handleFormSubmit}
       >
-      <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
-      <option value="Cruising">Cruising</option>
-      <option value="Fishing">Fishing</option>
-      <option value="Watersports">Watersports</option>
-      {/* </select> */}
-      </FormControl>     
-    </FormGroup>{' '}
-    <Button
-      type="submit"
-      id="searchBttn"
-      onClick={this.props.handleFormSubmit}
-    >
-      <i className="fas fa-search"></i>
-    </Button>
-    {/* </div> */}
-  </Form>
-           
-            </div>
-              <div id="packageDetails">
-                {details}
-              </div>
-             
-              
-              
-            
-              {/* <div id="reviews">
-              <Reviews></Reviews>
-              </div> */}
-
-            
+        <i className="fas fa-search"></i>
+      </Button>
+    </Form>
+  </div>
+          <div id="packageDetails">
+            {details}
+          </div>
+         
+          
+          
         
-          {/* </Col> */}
-       
-      </div>
+          {/* <div id="reviews">
+          <Reviews></Reviews>
+          </div> */}
+
+
+          
+      {/* <div id="results">
+      { this.state.results.map(boat =>
+      <BoatCard
+      key={boat._id}
+       boat={boat}
+      />
+      )} */}
       
-    );
-  } 
+      
+    
+       
+
+      </Grid>
+   
+  )
+  }
+  
 
   renderCarousel = () => {
     return (
@@ -223,6 +239,11 @@ class Home extends Component {
       // </Grid>  
     );
   }
-}
+  }
+  // const buttonStyle = {
+  //   margin: "10px 10px 10px 10px"
+  // };
+  
+  
 
 export default withRouter(Home);

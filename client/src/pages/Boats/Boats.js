@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 /* Import Components */
 
-import CheckBox from "../../components/CheckBox";
+import CheckBox from "../../components/RadioGroup";
 import Select from "../../components/Select";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
@@ -18,6 +19,7 @@ import API from "../../utils/API";
 import { Grid, Row, Col, Form, FormControl, FormGroup } from "react-bootstrap";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
+import RadioGroup from "../../components/RadioGroup";
 // import "../../App.css"
 // import "./Boats.css"
 // import SearchForm from "../../components/SearchForm";
@@ -40,13 +42,14 @@ import axios from "axios";
 class Boats extends Component {
   constructor(props) {
     super(props);
+    const locationState = props.location.state.state;
     this.state = {
 
       newSearch: {
-        package: "",
+        package: locationState.package,
         // date: "",
-        activity: [],
-        passengers: "", 
+        activity: locationState.activity,
+        passengers: locationState.passengers, 
       },
       results: [],
       packageOptions: ["Shared", "Private"],
@@ -57,6 +60,12 @@ class Boats extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
+
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
 
   // handleSearch(e) {
   //   let value = e.target.value;  
@@ -84,55 +93,8 @@ class Boats extends Component {
   // }
 
 componentDidMount() {
-//   this.loadBoats();
-// }
-  // Axios.get('/api/boats/', { headers: { 'crossDomain': true, 'Content-Type': 'application/json' } })
-  // .then(res=> {
-  //   this.setState({ users: res.data }).then(prevState => {
-  //     console.log(JSON.stringify(this.state.results))
-  //   });
-  // })
-
-// loadBoats: function() {
-// loadBoats = event => {
-  API.getBoats()
-  .then(res => this.setState({ results: res.data })
-  )
-  .catch(err => console.log(err));
-};
-//   this.
-//   axios.get("/api/boats")
-//   .then(eachOne => {
-//     res.json(eachOne);
-//   })
-    // ({ results : res.data.results})
-    // this.setState({ results: res.data });
-      // console.log(JSON.stringify(this.state.results))
-    // }
-  
-    // console.log(this.state.newSearch);
-
-// loadBoats = () => {
-//   API.loadBoats()
-//   .then(res => this.setState({ boats: res.data.message }))
-//   .catch(err => console.log(err));
-// }
-  //  API.getBoats()
-  // .then(res => this.setState({ boats: res.data.message }))
-  // .catch(err => console.log(err));
-  // };
-
-  // componentDidMount() {
-  //   API.getBoats()
-  //  .then(res => this.setState({ boats: res.data.message }))
-  //  .catch(err => console.log(err));
-  //  }
-
-  //   handleInputChange = event => {
-  // //  const { name, value } = event.target;
-  //  this.setState({ newSearch: event.target.value  });
-  // };
-
+  this.fetchBoats();
+}
 
 handlePassengers(e) {
   let value = e.target.value;
@@ -234,35 +196,19 @@ handleCheckBox(e) {
 
 handleFormSubmit = event => {
   event.preventDefault();
-  // alert('the value is:' + this.input.value);
-  // let userData = this.state.newSearch;
-  // this.renderResults();
-  // (userData)
+  this.fetchBoats()
+};
+
+
+fetchBoats = () => {
   API.search(this.state.newSearch)
-    // date: this.state.date,
-    // package: this.state.package,
-    // passengers: this.state.passengers,
-    // activity: this.state.activity
-  
-
-    
-  // ("/api/boats/", {
-  //   method: "GET",
-  //   body: JSON.stringify(userData)
-    // headers: {
-    //   Accept: "application/json",
-    //   "Content-Type": "application/json"
-    // }
-  .then(res => {
-    if (res.data.status == "error") {
-      throw new Error(res.data.message);
-    }
-    this.setState({ results: res.data, error: ""});
-  })
-    // this.loadBoats()
+    .then(res => {
+      if (res.data.status == "error") {
+        throw new Error(res.data.message);
+      }
+      this.setState({ results: res.data, error: ""});
+    })
    .catch(err => this.setState({ error: err.message }));
-
-
 };
     
     
@@ -357,7 +303,7 @@ handleFormSubmit = event => {
       handleInputChange={this.handleInputChange}
       boats={this.state}
       >
-      <CheckBox
+      <RadioGroup
       title={"Package"}
       name={"package"}
       options={this.state.packageOptions}
@@ -418,4 +364,4 @@ const buttonStyle = {
 
 
 
-export default Boats;
+export default withRouter(Boats);
