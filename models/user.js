@@ -25,10 +25,19 @@ userSchema.pre("save", async function (next) {
         console.log("salt", salt);
         console.log("normal password", this.password);
         console.log("hashed password", passwordHash);
+        this.password = passwordHash;
     } catch (error) {
         next(error);
     }
 });
+
+userSchema.methods.isValidPassword = async function(newPassword) {
+    try {
+      return await bcrypt.compare(newPassword, this.password);
+    } catch(error) {
+      throw new Error(error);
+    }
+  }
 
 //Create a model
 const User = mongoose.model("user", userSchema);
