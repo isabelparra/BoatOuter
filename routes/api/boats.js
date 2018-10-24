@@ -4,7 +4,6 @@ const boatsController = require("../../controllers/boatsController");
 // Matches with "/api/boats"
 router.route("/")
   .get(boatsController.findAll)
-  // .then(({ data: { results } }) => res.json(results))
   // .catch(err => res.status(422).json(err));
   .post(boatsController.create)
 
@@ -12,8 +11,11 @@ router.route("/")
 // Matches with "/api/boats/:activity"
 router
   .route("/:activity")
-  .get(boatsController.findByActivity)
+  .get(boatsController.SearchActivity)
 //   .put(boatsController.update)
 //   .delete(boatsController.remove);
 
+router
+.route("/:passengers")
+.get(boatsController.searchActivity)
 module.exports = router;

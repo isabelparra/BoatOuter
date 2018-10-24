@@ -17,6 +17,7 @@ import API from "../../utils/API";
 
 import { Grid, Row, Col, Form, FormControl, FormGroup } from "react-bootstrap";
 import SearchResults from "../../components/SearchResults/SearchResults";
+import axios from "axios";
 // import "../../App.css"
 // import "./Boats.css"
 // import SearchForm from "../../components/SearchForm";
@@ -84,14 +85,39 @@ class Boats extends Component {
   // }
 
 componentDidMount() {
-  this.loadBoats();
-}
+//   this.loadBoats();
+// }
+  // Axios.get('/api/boats/', { headers: { 'crossDomain': true, 'Content-Type': 'application/json' } })
+  // .then(res=> {
+  //   this.setState({ users: res.data }).then(prevState => {
+  //     console.log(JSON.stringify(this.state.results))
+  //   });
+  // })
 
-loadBoats = () => {
-  API.loadSearch()
-  .then(res => this.setState({ boats: res.data.message }))
+// loadBoats: function() {
+// loadBoats = event => {
+  API.getBoats(this.props.match.params.id)
+  .then(res => this.setState({ results: res.data })
+  )
   .catch(err => console.log(err));
-}
+};
+//   this.
+//   axios.get("/api/boats")
+//   .then(eachOne => {
+//     res.json(eachOne);
+//   })
+    // ({ results : res.data.results})
+    // this.setState({ results: res.data });
+      // console.log(JSON.stringify(this.state.results))
+    // }
+  
+    // console.log(this.state.newSearch);
+
+// loadBoats = () => {
+//   API.loadBoats()
+//   .then(res => this.setState({ boats: res.data.message }))
+//   .catch(err => console.log(err));
+// }
   //  API.getBoats()
   // .then(res => this.setState({ boats: res.data.message }))
   // .catch(err => console.log(err));
@@ -196,10 +222,10 @@ handleCheckBox(e) {
 
 
 
-//  handleInputChange = (activitySelect) => {
-//    this.setState({ activitySelect });
-//    console.log(activitySelect);
-//  }
+ handleInputChange = event => {
+   this.setState({ search: event.target.value });
+  
+ }
 
 //   const { name, value } = event.target;
 //   //  consolelog(e.target.value);
@@ -213,7 +239,7 @@ handleFormSubmit = event => {
   // let userData = this.state.newSearch;
   // this.renderResults();
   // (userData)
-  API.searchBoats(this.state.newSearch)
+  API.search(this.state.newSearch)
     // date: this.state.date,
     // package: this.state.package,
     // passengers: this.state.passengers,
@@ -327,7 +353,11 @@ handleFormSubmit = event => {
   render() {
     return (
       <div>
-      <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+      <form className="container-fluid" 
+      handleFormSubmit={this.handleFormSubmit}
+      handleInputChange={this.handleInputChange}
+      boats={this.state}
+      >
       <CheckBox
       title={"Package"}
       name={"package"}
@@ -367,11 +397,22 @@ handleFormSubmit = event => {
       />{" "}
     
       </form>
+      
+      {/* <div id="results">
+      { this.state.results.map(boat =>
+      <tr>
+        <td>{boat._id}</td>
+        <td>{boat.boat}</td>
+      </tr>
+      )
+    }
+
+      </div> */}
       </div>
-    )
+   
+    );
   }
 }
-
     
 
 const buttonStyle = {

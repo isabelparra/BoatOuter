@@ -9,15 +9,15 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findByActivity: function(req, res) {
+  searchActivity: function(req, res) {
     db.boatOuter
-      .findByActivity(req.params.id)
+      .find(req.params.activity)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  searchCapacity: function(req, res) {
     db.Boats
-      .create(req.body)
+      .find(req.params.passengers)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

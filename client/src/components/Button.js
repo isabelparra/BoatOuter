@@ -8,7 +8,6 @@ const Button = props => {
         style={props.style}
         className={
             props.type === "primary" ? "btn btn-primary" : "btn btn-secondary"
-
         }
         onClick={props.action}
         >
