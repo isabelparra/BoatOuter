@@ -13,7 +13,7 @@ import { Input, FormBtn } from "../../components/Form";
 import SharedDetails from "../../components/SharedDetails";
 import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
 import Reviews from "../../components/Reviews";
-import SearchForm from "../../components/SearchForm";
+// import SearchForm from "../../components/SearchForm";
 import PrivateDetails from "../../components/PrivateDetails";
 // import ReactBootstrapCarousel from "react-bootstrap-carousel";
 // import "bootstrap/dist/css/bootstrap.css";

@@ -10,12 +10,12 @@ const SearchResults = props => (
   //     </li>
   //   ))}
   // </ul>
-  <div className="list-group search-activity">
-  {props.results.map(boat => (   
+  <div className="list-group">
+  {props.results.map(result => (   
    <Col xs={12} md={5}>       
       <BoatCard
-      key={boat}
-      boat={boat}
+      key={result}
+      src={result}
       />  
      </Col>
 
