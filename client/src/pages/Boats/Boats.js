@@ -44,12 +44,11 @@ class Boats extends Component {
 
       newSearch: {
         package: "",
-        date: "",
+        // date: "",
         activity: [],
-        passengers: "",
-        results: []
-
+        passengers: "", 
       },
+      results: [],
       packageOptions: ["Shared", "Private"],
       activityOptions: ["Fishing", "Cruising", "Watersports"]
     };
@@ -96,7 +95,7 @@ componentDidMount() {
 
 // loadBoats: function() {
 // loadBoats = event => {
-  API.getBoats(this.props.match.params.id)
+  API.getBoats()
   .then(res => this.setState({ results: res.data })
   )
   .catch(err => console.log(err));
@@ -258,7 +257,7 @@ handleFormSubmit = event => {
     if (res.data.status == "error") {
       throw new Error(res.data.message);
     }
-    this.setState({ results: res.data.message, error: ""});
+    this.setState({ results: res.data, error: ""});
   })
     // this.loadBoats()
    .catch(err => this.setState({ error: err.message }));
@@ -352,7 +351,7 @@ handleFormSubmit = event => {
 
   render() {
     return (
-      <div>
+      <Grid>
       <form className="container-fluid" 
       handleFormSubmit={this.handleFormSubmit}
       handleInputChange={this.handleInputChange}
@@ -398,26 +397,24 @@ handleFormSubmit = event => {
     
       </form>
       
-      {/* <div id="results">
+      <div id="results">
       { this.state.results.map(boat =>
-      <tr>
-        <td>{boat._id}</td>
-        <td>{boat.boat}</td>
-      </tr>
-      )
-    }
-
-      </div> */}
-      </div>
-   
-    );
-  }
-}
-    
+      <BoatCard
+      key={boat._id}
+       boat={boat}
+      />
+      )}
+        </div>
+        </Grid>
+      );
+      }
+      }
+      
 
 const buttonStyle = {
   margin: "10px 10px 10px 10px"
 };
+
 
 
 

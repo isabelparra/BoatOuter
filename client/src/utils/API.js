@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   getBoats: function() {
-    return axios.get("/");
+    return axios.get("api/boats");
   },
 
   // Search Boats
@@ -13,7 +13,7 @@ export default {
   //   return axios.get("/api/boats/", { params: { q: query } });
   // },
   searchActivity: function(req, res) {
-    return axios.get("api/:activity/:_id");
+    return axios.get("api/boats/:activity");
     //   boatOuter.find({}).then(function(results) {
     //     Activity.find({activity: req.params.activity})
     //     })
@@ -24,8 +24,14 @@ export default {
     // })
   
   },
-  searchCapacity: function(newSearch) {
-    return axios.get("/api/boats/:passengers" + newSearch);
+  // searchCapacity: function(newSearch) {
+  //   return axios.get("/api/boats/:passengers" + newSearch);
+  // },
+
+  search: function(params) {
+    return axios.get("api/boats/search", {
+      params: params
+    });
   }
 
   
