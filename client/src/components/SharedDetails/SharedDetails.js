@@ -7,13 +7,11 @@ import sail from "../../assets/images/sail.png";
 // import { Container } from "../../components/Grid";
 import Reviews from "../Reviews";
 const SharedDetails = props => (
-    <div id="details">
-<Grid id="grid">
-    <Row>
-    <Col md={6} xs={12}> 
+<div id="details row">
+    <div className="col-lg-6 col-m-6 col-sm-12">
         <img id="detailsImg" src={sail}/>     
-    </Col>
-        <Col md={6} xs={12}>
+    </div>
+        <div className="col">
             <div>
                 <h1>SHARE</h1>  
                 <h4>Ride along with a private captain and certified users</h4>
@@ -37,20 +35,14 @@ const SharedDetails = props => (
                     <p>Split the cost with users</p>
                 </div>
             </div>
-        </Col> 
-    </Row>
-    <Row>
-         {/* </Col>   
-</Row> */}
-<Col>
-    <div id="reviews">
+        </div>
+    
+    
+    <div id="reviews row">
         <Reviews></Reviews>
     </div>
-    </Col>
-    </Row>
-    <Row>
-    <Col>
-                <div id="safety">
+        <div>
+            <div id="safety row">
               <h3>SAFETY FIRST</h3>
               <p>Your safety is our top priority. Every boat, captain and renter is BoatOuter-approved, which means they’ve passed our safety check.</p>
               </div>
@@ -60,10 +52,8 @@ const SharedDetails = props => (
               <p>Local Leaders</p>
               <p>Perfect Boats</p>
     
-   </Col>
-   </Row>
- </Grid>
- </div>
+        </div>
+</div>
 );
 
 export default SharedDetails;

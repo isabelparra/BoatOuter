@@ -11,30 +11,15 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // searchActivity: function(req, res) {
-  //   db.Boats
-  //   .find(req.query.activity)
-  //   .then(dbModel => res.json(dbModel))
-  //   .catch(err => res.status(422).json(err));
-  // },
   search: function(req, res) {
     console.log(req.query);
-
     db.Boats
       .find({ 
         activity: req.query.activity,
         passengers: { $gte: parseInt(req.query.passengers) },
         package: req.query.package
-      
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
-
-  // searchCapacity: function(req, res) {
-  //   db.Boats
-  //     .find(req.params.passengers)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
 };

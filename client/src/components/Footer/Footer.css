@@ -1,14 +1,13 @@
-.footer {
+/* .footer { */
     /* min-height: 1000px; */
     /* position: relative;
-    
     text-align: center; */
-    display: block;
-   
-    
-  }
+    /* display: block;
+    clear: both;
+
+  } */
   
-  .footer span {
+  /* .footer span {
     padding-top: 4em;
     padding-bottom: 4em;
     position: absolute;
@@ -16,6 +15,6 @@
     left: 0;
     right: 0;
     /* padding: 3px; */
-    background: white;
-  }
-  
+    /* background: white;
+  } */
+   

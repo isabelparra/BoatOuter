@@ -11,22 +11,13 @@ import Input from "../../components/Input";
 import BoatCard from "../../components/BoatCard";
 import SharedDetails from "../../components/SharedDetails";
 import PrivateDetails from "../../components/PrivateDetails";
-import Reviews from "../../components/Reviews";
-
-import { Grid, Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-
-// import boat from "../../assets/images/boat.png";
-// import carousel from "../../assets/images/carousel.jpeg";
-// import preview from "../../assets/images/preview.png";
-// import boatpr from "../../assets/images/boatpr.jpeg";
-// import a from "../../assets/images/a.jpeg";
-// import e from "../../assets/images/e.jpeg";
-// import f from "../../assets/images/f.jpeg";
-// import a2 from "../../assets/images/a2.jpg";
-// import a3 from "../../assets/images/a3.jpg";
-import w from "../../assets/images/w.jpeg";
-import aa from "../../assets/images/aa.jpeg";
-import a1 from "../../assets/images/a1.jpeg";
+// import Reviews from "../../components/Reviews";
+import { Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Container from "../../components/Container";
+import carousel1 from "../../assets/images/carousel1.png";
+import carousel4 from "../../assets/images/carousel4.png";
+import carousel3 from "../../assets/images/carousel3.png";
+import carousel5 from "../../assets/images/carousel5.png";
 import "./Home.css";
 
 class Home extends Component {
@@ -92,76 +83,108 @@ class Home extends Component {
         details = <PrivateDetails></PrivateDetails>
       }
     return (
-      <Grid>
+      <Container>
+        <div className="row">
         {this.renderCarousel()}
-        <div id='packageType'>
-          <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
-          <button id='private' onClick={this.handlePrivateClicked}>Private</button>
         </div>
-
-        <div id="searchForm">
-          <Form id="" onSubmit={this.handleFormSubmit}>
-            <FormGroup className="form-group">
-              <FormControl 
-                value={this.state.date}
-                onChange={this.handleInputChange}
-                name="date"
-                list="dates"
-                type="date"
-                placeholder="Trip Date"
-                id="dateSelect"
-              />
-            </FormGroup>{' '}
-            <FormGroup className="input">         
-              <FormControl componentClass="select"         
-                value={this.state.passengers}
-                onChange={this.handleInputChange}
-                name="passengers"
-                placeholder="Party Size"
-                id="partySize">
-                <option value="Party Size">Party Size</option>
-                <option value="1">1 passenger</option>
-                <option value="2">2 passengers</option>
-                <option value="3">3 passengers</option>
-                <option value="4">4 passengers</option>
-                <option value="5">5 passengers</option>
-                <option value="6">6 passengers</option>
-                <option value="7">7 passengers</option>
-                <option value="8">8 passengers</option>
-                <option value="9">9 passengers</option>
-                <option value="10">10 passengers</option>
-                <option value="11">11 passengers</option>
-                <option value="12">12+ passengers</option>               
-              </FormControl>
-            </FormGroup>{' '}
-            <FormGroup className="input">
-            {/* <ControlLabel>Select Activity</ControlLabel> */}
-              <FormControl componentClass="select" placeholder="select"
-                defaultValue={this.state.activity} 
-                onChange={this.handleInputChange} 
-                name='activity'
-                id="selectActivity"
-              >
-                <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
-                <option value="Cruising">Cruising</option>
-                <option value="Fishing">Fishing</option>
-                <option value="Watersports">Watersports</option> 
-              </FormControl>     
-            </FormGroup>{' '}
-            <Button
-              type="submit"
-              id="searchBttn"
-              onClick={this.props.handleFormSubmit}
-            >
-              <i className="fas fa-search"></i>
-            </Button>
-          </Form>
-        </div>
+      
+        <div className='row'>
+          {/* <div id="sharedTab"> */}
+            <button id='shared' onClick={this.handleSharedClicked}>
+              <div className="circle">
+              </div>              
+              <h2 id="header">Shared</h2>
+              <p id="header">Get paired with other users going your way</p>
+            </button>
+          {/* </div> */}
+          {/* <div id="privateTab"> */}
+            <button id='private' onClick={this.handlePrivateClicked}>
+              <div className="circle">
+                </div>
+              <h2 id="header">Private</h2>
+              <p id="header">Instantly book a private boat</p>
+            </button>
+          </div>
+      
+   
+      
+          <div className="row">
+            <form id="searchForm" onSubmit={this.handleFormSubmit}>
+              {/* <div className="">  */}
+                <div className="input col-3">
+                  <FormControl 
+                    value={this.state.date}
+                    onChange={this.handleInputChange}
+                    name="date"
+                    list="dates"
+                    type="date"
+                    placeholder="Trip Date"
+                    id="dateSelect"
+                  />
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">         
+                  <FormControl componentClass="select"         
+                    value={this.state.passengers}
+                    onChange={this.handleInputChange}
+                    name="passengers"
+                    placeholder="Party Size"
+                    id="partySize">
+                    <option value="Party Size">Party Size</option>
+                    <option value="1">1 passenger</option>
+                    <option value="2">2 passengers</option>
+                    <option value="3">3 passengers</option>
+                    <option value="4">4 passengers</option>
+                    <option value="5">5 passengers</option>
+                    <option value="6">6 passengers</option>
+                    <option value="7">7 passengers</option>
+                    <option value="8">8 passengers</option>
+                    <option value="9">9 passengers</option>
+                    <option value="10">10 passengers</option>
+                    <option value="11">11 passengers</option>
+                    <option value="12">12+ passengers</option>               
+                  </FormControl>
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">
+                {/* <ControlLabel>Select Activity</ControlLabel> */}
+                    <FormControl componentClass="select" placeholder="select"
+                      defaultValue={this.state.activity} 
+                      onChange={this.handleInputChange} 
+                      name='activity'
+                      id="activity"
+                    >
+                    <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
+                    <option value="Cruising">Cruising</option>
+                    <option value="Fishing">Fishing</option>
+                    <option value="Watersports">Watersports</option> 
+                  </FormControl>     
+                </div>
+              {/* </div> */}
+      
+              {/* <div className="">  */}
+                <button
+                  type="submit"
+                  id="searchBttn"
+                  onClick={this.props.handleFormSubmit}
+                >
+                  <i className="fas fa-search"></i>
+                </button>
+              {/* </div> */}
+            </form>
+          </div>
+     
+        <Row>
+          <Col>
         <div id="packageDetails">
           {details}
         </div>
-        
-      </Grid>
+        </Col>
+         
+        </Row>
+     </Container>
     )
   }
   
@@ -169,21 +192,21 @@ class Home extends Component {
     return (
       <Carousel id="carousel">
         <Carousel.Item className="carouselItem">
-          <img className="CarImg" src={w}/>
+          <img className="CarImg" src={carousel1}/>
           <Carousel.Caption className="caption">
             <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="carouselItem">
-        <img className="CarImg" src={aa}/>
+        <img className="CarImg" src={carousel5}/>
           <Carousel.Caption className="caption">
           <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="carouselItem">
-          <img className="CarImg" src={a1}/>
+          <img className="CarImg" src={carousel3}/>
           <Carousel.Caption className="caption">
           <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
@@ -196,7 +219,6 @@ class Home extends Component {
   // const buttonStyle = {
   //   margin: "10px 10px 10px 10px"
   // };
-  
-  
+
 
 export default withRouter(Home);

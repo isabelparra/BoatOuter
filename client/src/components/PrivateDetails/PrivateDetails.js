@@ -14,8 +14,7 @@ const PrivateDetails = props => (
     <Row>
         <Col md={6} s={6} xs={12}> 
             <img id="detailsImg" src={sail}/>     
-       </Col>
-
+        </Col>
         <Col md={6} xs={12}> 
             <div>
                 <h1>PRIVATE</h1>  

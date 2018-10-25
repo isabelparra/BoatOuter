@@ -1,5 +1,7 @@
 #detailsImg {
     float: left;
+    width: 90%;
+
 }
 h1, h4, p {
     text-align: center;
@@ -22,8 +24,3 @@ h1, h4, p {
       
       width: 100%;
   }
-  
-  #detailsImg {
-    height: 500px;
-    width: auto;
-}

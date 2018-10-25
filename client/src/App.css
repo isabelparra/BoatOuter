@@ -1,5 +1,7 @@
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* .App {
@@ -25,27 +27,6 @@ html, body {
   color: #61dafb;
 } */
 
-#shared {
-  background-color: #64b7d1;
-  color: white;
-  float: left;
-  width: 50%;
-  text-align: center;
-  padding: 50px;
-  border: 0px;
-  /* border-top: 5px solid #84d4e7; */
-}
-
-#private {
-  background-color: #64b7d1;
-  color: white;
-  float: right;
-  width: 50%;
-  text-align: center;
-  padding: 50px;
-  border: 0px;
-  /* border-top: 5px solid #64b7d1; */
-}
 
 /* #grid, .container {
   padding: 0px;
