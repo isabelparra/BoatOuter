@@ -1,27 +1,33 @@
 import React, {Component} from "react";
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-// import { List, ListItem } from "../../components/List";
 
-// import { SearchForm } from "../../components/SearchForm";
-// import { throws } from "assert";
-// import { AsyncParallelBailHook } from "tapable";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+/* Import Components */
 
+import RadioGroup from "../../components/RadioGroup";
+import Select from "../../components/Select";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import BoatCard from "../../components/BoatCard";
+import SharedDetails from "../../components/SharedDetails";
+import PrivateDetails from "../../components/PrivateDetails";
+// import Reviews from "../../components/Reviews";
+import { Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Container from "../../components/Container";
+import shareIcon from "../../assets/images/shareIcon.png";
+import carousel1 from "../../assets/images/carousel1.png";
+import carousel4 from "../../assets/images/carousel4.png";
+import carousel3 from "../../assets/images/carousel3.png";
+import carousel5 from "../../assets/images/carousel5.png";
+import "./Home.css";
 
 class Home extends Component {
   state = {
       boats: [], 
-      // searchBoats: ""
-      type: "",
+      package: "",
       date: "",
       passengers: "",
       activity: ""
-      // results: []
   };
 
   static propTypes = {
@@ -30,24 +36,6 @@ class Home extends Component {
     history: PropTypes.object.isRequired
   };
 
-  // componentDidMount() {
-  //   this.loadBoats();
-  // }
-
-  // loadBoats = () => {
-  //   API.getBoats()
-  //     .then(res =>
-  //       this.setState({ boats: res.data, type: "", date: "", passengers: "", activity: "" }))
-  //       // this.setState({ results: res.data.data }))
-  //       .catch(err => console.log(err));
-  // };
-        // const response = await fetch('/api/boats');
-        // const body = await response.json();
-    
-        // if (response.status !== 200) throw Error(body.message);
-    
-        // return body;
-     
   handleInputChange = event => {
     const { name, value } = event.target;
     console.log(value);
@@ -58,116 +46,181 @@ class Home extends Component {
 
   handleSharedClicked = () => {
     this.setState({
-      type: 'shared'
+      package: 'Shared' 
     });
+    console.log("Shared Packaged");
   };
 
   handlePrivateClicked = () => {
     this.setState({
-      type: 'private'
-    });
+      package: 'Private'
+    }); 
+    console.log("Private Packaged");
   };
-    
+  
   handleFormSubmit = event => {
     event.preventDefault();
     // debugger;
-
-    if (this.state.type && this.state.date && this.state.passengers) {
-    //   API.saveBoat({
-    //     type: this.state.type,
-    //     date: this.state.date,
-    //     passengers: this.state.passengers,
-    //     activity: this.state.activity
-    // })
-        // .then(res => this.loadBoats())
-        // .catch(err => console.log(err));
-
+    if (this.state.package || this.state.date || this.state.passengers) {
     this.props.history.push('/boats', {
       pathname: '/boats',
       state:
       { 
-        type: this.state.type,
+        package: this.state.package,
         date: this.state.date,
         passengers: this.state.passengers,
         activity: this.state.activity
       }
     });
- }
+    }
   };
 
   render() {
+    var details;
+      if(this.state.package === "Shared"){   
+        details = <SharedDetails></SharedDetails>     
+      } 
+      else {
+        details = <PrivateDetails></PrivateDetails>
+      }
     return (
-        <Container fluid>
-          <Row>
-            <Col size="12">
-              <Jumbotron>
-                <h1>Discover the freedom of boating</h1>
-                <p>Plan your next water adventure for less</p>
-              </Jumbotron>
-              <div id='container'>
-              <button id='shared' onClick={this.handleSharedClicked}>Shared</button>
-              <button id='private' onClick={this.handlePrivateClicked}>Private</button>
-              </div>
-              {/* <SearchForm
-              value={this.state.search}
-              handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
-              /> */}
-              <form id='searchForm' onSubmit={this.handleFormSubmit}>
-                <Input
-                  value={this.state.date}
-                  onChange={this.handleInputChange}
-                  name="date"
-                  list="dates"
-                  type="date"
-                  placeholder="Date (required)"
-                  id="dateSelect"
+      <Container>
+        <div className="row">
+        {this.renderCarousel()}
+        </div>
+      
+        <div className='row'>
+          {/* <div id="sharedTab"> */}
+            <button id='shared' onClick={this.handleSharedClicked}>
+              <div className="circle">
+                <img src={shareIcon} id="icon"></img>
+              </div>              
+              <h2 id="header">Shared</h2>
+              <p id="header">Get paired with other users going your way</p>
+            </button>
+          {/* </div> */}
+          {/* <div id="privateTab"> */}
+            <button id='private' onClick={this.handlePrivateClicked}>
+              <div className="circle">
+                </div>
+              <h2 id="header">Private</h2>
+              <p id="header">Instantly book a private boat</p>
+            </button>
+          </div>
+      
+   
+      
+          <div className="row">
+            <form id="searchForm" onSubmit={this.handleFormSubmit}>
+              {/* <div className="">  */}
+                <div className="input col-3">
+                  <FormControl 
+                    value={this.state.date}
+                    onChange={this.handleInputChange}
+                    name="date"
+                    list="dates"
+                    type="date"
+                    placeholder="Trip Date"
+                    id="dateSelect"
                   />
-                <Input
-                  value={this.state.passengers}
-                  onChange={this.handleInputChange}
-                  name="passengers"
-                  type="integer"
-                  placeholder="Passengers (required)"
-                  />
-                <select 
-                value={this.state.activity} 
-                onChange={this.handleChange} 
-                name='activity'
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">         
+                  <FormControl componentClass="select"         
+                    value={this.state.passengers}
+                    onChange={this.handleInputChange}
+                    name="passengers"
+                    placeholder="Party Size"
+                    id="partySize">
+                    <option value="Party Size">Party Size</option>
+                    <option value="1">1 passenger</option>
+                    <option value="2">2 passengers</option>
+                    <option value="3">3 passengers</option>
+                    <option value="4">4 passengers</option>
+                    <option value="5">5 passengers</option>
+                    <option value="6">6 passengers</option>
+                    <option value="7">7 passengers</option>
+                    <option value="8">8 passengers</option>
+                    <option value="9">9 passengers</option>
+                    <option value="10">10 passengers</option>
+                    <option value="11">11 passengers</option>
+                    <option value="12">12+ passengers</option>               
+                  </FormControl>
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">
+                {/* <ControlLabel>Select Activity</ControlLabel> */}
+                    <FormControl componentClass="select" placeholder="select"
+                      defaultValue={this.state.activity} 
+                      onChange={this.handleInputChange} 
+                      name='activity'
+                      id="activity"
+                    >
+                    <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
+                    <option value="Cruising">Cruising</option>
+                    <option value="Fishing">Fishing</option>
+                    <option value="Watersports">Watersports</option> 
+                  </FormControl>     
+                </div>
+              {/* </div> */}
+      
+              {/* <div className="">  */}
+                <button
+                  type="submit"
+                  id="searchBttn"
+                  onClick={this.props.handleFormSubmit}
                 >
-                <option disabled selected value>Select activity</option>
-                  <option value="Cruising">Cruising</option>
-                  <option value="Fishing">Fishing</option>
-                  <option value="Watersports">Watersports</option>
-                </select>
-          
-             
-  
-         <FormBtn 
-                type="submit"
-                onClick={this.props.handleFormSubmit}
-                // type="success"
-                className="btn btn-success"
-                >
-                Search
-                </FormBtn>
-                
-        
-              </form> 
-
-             
-              
-
-
-
-
-          </Col>
+                  <i className="fas fa-search"></i>
+                </button>
+              {/* </div> */}
+            </form>
+          </div>
+     
+        <Row>
+          <Col>
+        <div id="packageDetails">
+          {details}
+        </div>
+        </Col>
+         
         </Row>
-      </Container>
+     </Container>
+    )
+  }
+  
+  renderCarousel = () => {
+    return (
+      <Carousel id="carousel">
+        <Carousel.Item className="carouselItem">
+          <img className="CarImg" src={carousel1}/>
+          <Carousel.Caption className="caption">
+            <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className="carouselItem">
+        <img className="CarImg" src={carousel5}/>
+          <Carousel.Caption className="caption">
+          <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className="carouselItem">
+          <img className="CarImg" src={carousel3}/>
+          <Carousel.Caption className="caption">
+          <h1>Discover the freedom of boating</h1>
+            <p>Plan your next water adventure for less</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>  
     );
   }
-    
 }
-  
+  // const buttonStyle = {
+  //   margin: "10px 10px 10px 10px"
+  // };
+
 
 export default withRouter(Home);

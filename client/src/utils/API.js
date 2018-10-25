@@ -1,16 +1,18 @@
 import axios from "axios";
 
 export default {
-  // Gets all boats
-  getBoats: function(query) {
-    return axios.get("/api/boats");
+  getBoats: function() {
+    return axios.get("api/boats");
   },
-  // Gets the book with the given id
-  // getBoat: function(id) {
-  //   return axios.get("/api/boats/" + id);
+  // searchBoats: function(query) {
+  //   return axios.get("/api/boats/", { params: { q: query } });
   // },
-  // Saves a book to the database
-  saveBoat: function(searchData) {
-    return axios.post("/api/search", searchData);
+  // searchActivity: function(req, res) {
+  //   return axios.get("api/boats/:activity");
+  // },
+  search: function(params) {
+    return axios.get("api/boats/search", {
+      params: params
+    });
   }
 };

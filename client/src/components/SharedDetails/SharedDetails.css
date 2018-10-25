@@ -1,0 +1,78 @@
+#detailsImg {
+    height: 500px;
+    width: auto;
+    float: left;
+    overflow: hidden;
+}
+h1, h4, p {
+    text-align: center;
+}
+
+#detailsIcon {
+    max-width: 75px;
+    text-align: center;
+    /* justify-content: center; */
+    margin: 0 auto;
+}
+
+#details {
+    padding: 0px;
+}
+
+
+
+
+.detailsCol {
+
+    margin: 0px auto;
+}
+
+
+#reviews {
+    background-color: #64B7D1;
+    display: inline-block;
+    clear: both;
+  }
+
+
+  #sideImg {
+    height: 500px;
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+
+/* #p {
+    word-wrap: break-word;
+} */
+#about-caption {
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+}
+
+#main-about {
+    margin-left: 0px;
+}
+.row {
+    margin: 0px;
+}
+
+#safety-header {
+    text-align: center;
+    padding: 80px;
+   padding-top: 50px;
+}
+
+.safety-col {
+    float: left;
+    width: 175px;
+    text-align: center;
+}
+
+#safety-info {
+    
+    justify-content: center;
+    display: inline;
+    margin: 0 auto !important;
+}
