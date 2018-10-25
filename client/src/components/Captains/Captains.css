@@ -1,0 +1,44 @@
+#captains {
+    background-color: #64b7d1;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    height: 350px;
+}
+
+/* #reviewsImg {
+    width: 25%;
+    margin: 0 auto;
+
+} */
+/* 
+#reviewsCarousel {
+    max-height: 350px;
+}
+
+.carouselItem item active {
+    max-height: 350px !important;
+} */
+h3 {
+    font-size: 18px;
+    /* text-align: center; */
+}
+/* .captainsDiv {
+    width: 100%;
+} */
+
+#captainImg {
+    height: 300px;
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+
+#applyBttn {
+    border: 1px solid white;
+    background: none;
+    padding: 10px 15px 10px 15px;
+    position: relative;
+    margin: 0 auto;
+
+}

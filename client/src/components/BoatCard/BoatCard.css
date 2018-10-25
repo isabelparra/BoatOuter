@@ -27,3 +27,15 @@
 /* ul {
     list-style: none;
   } */
+
+  .listing_name {
+      text-align: left;
+      line-height: 12px;
+      font-size: 20px;
+      
+  }
+
+  #details {
+    font-size: 18px;
+    line-height: 18px;
+  }

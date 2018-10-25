@@ -3,11 +3,14 @@ import React from "react";
 import { Grid, Col, Row } from "react-bootstrap";
 import "./SharedDetails.css";
 import icon from "../../assets/images/icon.svg";
+import icon3 from "../../assets/images/icon3.svg";
+import icon4 from "../../assets/images/icon4.svg";
 import sail from "../../assets/images/sail.png";
 // import { Container } from "../../components/Grid";
+import About from "../About";
+import Captains from "../Captains";
 import Reviews from "../Reviews";
 import Safety from "../Safety";
-import jump from "../../assets/images/jump.jpeg";
 
 const SharedDetails = props => (
 <div id="details" className="row">
@@ -16,26 +19,31 @@ const SharedDetails = props => (
     </div>
         <div className="col-6" id="details">
             <div className="row">
-                <h1>SHARE</h1>  
+                <h1 className="title">SHARE</h1>  
                 <h4>Ride along with a private captain and certified users</h4>
-                <p>Choose your preference. We'll do the rest.</p>    
+                <p>Choose your preference. We'll do the rest.</p>  
+                <br></br>  
                 <div className="row">
-                    <div className="detailsCol col-lg-2 col-m-2 col-xs-4">
+                    <div className="detailsCol text-center  col-lg-2 col-md-2 col-sm-4">
                         <img id="detailsIcon" src={icon}/>
-                        <p>Enjoy a boat day for as little as $50</p>
-                        <p>Split the cost with users</p>
+                        <br></br><br></br>
+                        <strong><p>Enjoy a boat day</p></strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
               
-                <div className="detailsCol col-lg-2 col-m-2 col-xs-4">
-                <img id="detailsIcon" src={icon}/>
-                    <p>Enjoy a boat day for as little as $50</p>
-                    <p>Split the cost with users</p>
+                <div className="detailsCol text-center  col-lg-2 col-md-2 col-sm-4">
+                <img id="detailsIcon" src={icon3}/>
+                <br></br><br></br>
+                    <strong><p>Split the cost</p></strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    
                 </div>
 
-                <div className="detailsCol col-lg-2 col-m-2 col-xs-4">
-                <img id="detailsIcon" src={icon}/>
-                    <p></p>
-                    <p>Split the cost with users</p>
+                <div className="detailsCol text-center col-lg-2 col-md-2 col-sm-4">
+                <img id="detailsIcon" src={icon4}/>
+                <br></br><br></br>
+                    <strong><p>Split the cost with users</p></strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
                 </div>
             </div>
@@ -44,21 +52,22 @@ const SharedDetails = props => (
     <div className="row" id="reviews">
         <Reviews></Reviews>
     </div>
-    <div className="row" id="main-about">
-            <img className="col-lg-6 col-md-8 col-xs-12" id="sideImg" src={jump}></img>
-            
-            <div className="col-lg-6 col-md-3 col-xs-12" id="about-caption">
-                <h2>Your outing, your call</h2>
-                <p className="overflow-wrap">With Boat Outer, you’re always in control. Once we match you, you'll review crew credentials and boat details before confirming your trip.</p>
-            </div>
+
+
+                <div className="row" id="main-about">
+         <About></About>
     </div>
+   
        
             <div className="row" id="safety-header">
 <Safety></Safety>
             </div>
+            <div className="row">
+<Captains></Captains>
+            </div>
               
-         
-</div>
+      </div>   
+
 );
 
 export default SharedDetails;

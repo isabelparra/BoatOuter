@@ -188,8 +188,11 @@ render() {
       </form>
       </div>
       <div id="results">
+      {this.state.results.length ? (
+        <div>
+
         { this.state.results.map(boat =>
-          <div className="col-lg-5 col-m-5 col-xs-12">
+          <div className="col-lg-5 col-md-5 col-xs-12">
             <BoatCard
               key={boat._id}
               boat={boat}
@@ -197,8 +200,15 @@ render() {
             />
           </div>  
         )}
+        </div>
+         ) : (
+              <h3>No Results</h3>
+         )}
+
+  
       
         {this.renderModal()}
+        
  
       </div>
       </Container>
@@ -225,6 +235,8 @@ render() {
     );         
   }
 }
+
+
   
 const buttonStyle = {
   margin: "10px 10px 10px 10px"

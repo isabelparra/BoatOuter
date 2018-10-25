@@ -50,7 +50,7 @@ class Home extends Component {
       package: 'Shared' 
     });
     console.log("Shared Packaged");
-    this.highlightTab();
+
   };
 
   handlePrivateClicked = () => {
@@ -80,7 +80,8 @@ class Home extends Component {
   render() {
     var details;
       if(this.state.package === "Shared"){   
-        details = <SharedDetails></SharedDetails>     
+        details = <SharedDetails></SharedDetails>  
+        // this.highlightTab();   
       } 
       else {
         details = <PrivateDetails></PrivateDetails>
@@ -181,14 +182,21 @@ class Home extends Component {
             </form>
           </div>
      
-        <Row>
-          <Col>
-        <div id="packageDetails">
+        <div className="row" id="packageDetails">
           {details}
         </div>
-        </Col>
-         
-        </Row>
+        <div id="footer-top" className="row">
+    <div className="col-md-5">
+      <h3 className="overflow-wrap">
+        BoatOuter is on a mission to bring everyone the freedom of flight.
+      </h3>
+      
+    </div>
+    <div className="col-md-6">
+    <p id="footer-mission" className="overflow-wrap">BoatOuter connects you with thousands of boats, captains, and other renters to help you choose dates, split the cost and charter a boat on your terms.</p>
+    </div>
+</div>
+
      </Container>
     )
   }
@@ -221,9 +229,14 @@ class Home extends Component {
     );
   }
 
-  highlightTab = () => {
-    
-  }
+  // highlightTab = () => {
+  //   var clickTab = document.getElementById(shared).style.borderTop;
+  //   return (
+  //       tabBorder: 3px,
+  //     };
+  //   }
+  //   )
+   
 }
   // const buttonStyle = {
   //   margin: "10px 10px 10px 10px"

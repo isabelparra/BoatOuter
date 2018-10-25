@@ -6,13 +6,19 @@
 }
 h1, h4, p {
     text-align: center;
+
+}
+.title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 22px;
+    padding: 10px;
 }
 
 #detailsIcon {
     max-width: 75px;
     text-align: center;
     /* justify-content: center; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 #details {

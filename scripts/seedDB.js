@@ -42,7 +42,7 @@ const boatsSeed = [
      activity: "Cruising",
      boatSize: "15-20 FT",
      href: "",
-     image: "https://images.unsplash.com/photo-1512602110-67198e50f815?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=950989aa7f17946a8fa9344108af9d96&auto=format&fit=crop&w=750&q=80",
+     image: "https://sunsetsailsalem.com/wp-content/uploads/2017/03/salem-sailboat.jpg",
      availability: ["2018/10/27", "2018/10/28"] 
    },
    {
@@ -90,7 +90,7 @@ const boatsSeed = [
     activity: "Fishing",
     boatSize: "30-40 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "https://dq1guhnd3lyhy.cloudfront.net/public/images/charters/1112/public/73d51ea2afdbc37710b03d080e7ab21f.jpg",
     availability: ["2018/10/27", "2018/10/28"] 
   },
   {
@@ -102,19 +102,19 @@ const boatsSeed = [
     activity: "Cruising",
     boatSize: "30-40 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "https://www.discoverboating.com/sites/default/files/migrate-boat-types-images/motor-yachts-cruisers-image-01.jpg",
     availability: ["2018/10/27", "2018/10/28"] 
   },
   {
     boat_name: "Belle",
     package: "Shared",
-    listing_name: "Yacht Party Rental - 44' Atlantis!",
+    listing_name: "Yacht Party Rental",
     captain: "Tim",
     passengers: 22,
     activity: "Watersports",
     boatSize: "40-50 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "https://cdn.jamesedition.com/media/W1siZiIsImRhdGEvaW1hZ2VzLzI3OTgyMzg2X3NvdXJjZS5qcGciXSxbInAiLCJ0aHVtYiIsIjIwMDB4Il0sWyJwIiwid2F0ZXJtYXJrIl0sWyJwIiwiZW5jb2RlIiwianBnIiwiLXN0cmlwIC1xdWFsaXR5IDgwIC1pbnRlcmxhY2UgUGxhbmUiXV0/super-yacht-co-ownership-own-a-benetti-delfino-95-from-2-450-000.jpg?sha=5adb662b55d0a20c",
     availability: ["2018/10/27", "2018/10/28"] 
   },
   {
@@ -126,7 +126,31 @@ const boatsSeed = [
     activity: "Cruising",
     boatSize: "20-30 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "http://boats.iboats.com/images/newboats/2015_heros/jeanneau_boats_hero.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Catamaran",
+    captain: "Tim",
+    passengers: 9,
+    activity: "Cruising",
+    boatSize: "30 FT",
+    href: "",
+    image: "https://www.sailing-holidays-in-croatia.com/website/var/tmp/image-thumbnails/0/3078/thumb__contentfullimage/catamaran-rent-croatia.jpeg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Private",
+    listing_name: "Sailing",
+    captain: "Tim",
+    passengers: 5,
+    activity: "Cruising",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "https://sailo.s3.amazonaws.com/media/boats/2016/08/rental-Sail-boat-Ericson-38feet-Jersey_City-NJ_hd9mQ3Y.jpg",
     availability: ["2018/10/27", "2018/10/28"] 
   },
   {
@@ -135,10 +159,22 @@ const boatsSeed = [
     listing_name: "Cruiser",
     captain: "Tim",
     passengers: 7,
-    activity: "Waterports",
+    activity: "Cruising",
     boatSize: "20-30 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/0e/2e/87/e1/sterling-deck-boats-for.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Party Yacht",
+    captain: "Tim",
+    passengers: 20,
+    activity: "Fishing",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/06/bf/7d/34/miami-boat-rent.jpg",
     availability: ["2018/10/27", "2018/10/28"] 
   },
   {
@@ -150,7 +186,19 @@ const boatsSeed = [
     activity: "Cruising",
     boatSize: "20-30 FT",
     href: "",
-    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    image: "https://www.bavariayachts.com/fileadmin/_processed_/b/2/csm_bavaria-sy-overview-cruiserline_b07e99fc83.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Private",
+    listing_name: "Contender",
+    captain: "Tim",
+    passengers: 13,
+    activity: "Watersports",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "https://www.wilmetteboatrentals.com/wp-content/uploads/2012/05/Boat1.jpg",
     availability: ["2018/10/27", "2018/10/28"] 
   }
 ];
