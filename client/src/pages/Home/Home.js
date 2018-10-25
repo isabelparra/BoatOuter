@@ -1,36 +1,35 @@
 import React, {Component} from "react";
 import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
-// import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-// import { List, ListItem } from "../../components/List";
-// import { SearchForm } from "../../components/SearchForm";
-// import { throws } from "assert";
-// import { AsyncParallelBailHook } from "tapable";
-import { Input, FormBtn } from "../../components/Form";
-import SharedDetails from "../../components/SharedDetails";
-import { Carousel } from "react-bootstrap";
 
-// import ReactBootstrapCarousel from "react-bootstrap-carousel";
-// import "bootstrap/dist/css/bootstrap.css";
-// import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import boat from "../../assets/images/boat.png";
-// import carousel from "../../assets/images/carousel.png";
-import preview from "../../assets/images/preview.png";
+/* Import Components */
+
+import RadioGroup from "../../components/RadioGroup";
+import Select from "../../components/Select";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import BoatCard from "../../components/BoatCard";
+import SharedDetails from "../../components/SharedDetails";
+import PrivateDetails from "../../components/PrivateDetails";
+// import Reviews from "../../components/Reviews";
+import { Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Container from "../../components/Container";
+import shareIcon from "../../assets/images/shareIcon.png";
+import privateIcon from "../../assets/images/privateIcon.png";
+import carousel1 from "../../assets/images/carousel1.png";
+import carousel4 from "../../assets/images/carousel4.png";
+import carousel3 from "../../assets/images/carousel3.png";
+import carousel5 from "../../assets/images/carousel5.png";
+import "./Home.css";
 
 class Home extends Component {
-
   state = {
       boats: [], 
-      // results: 
       package: "",
       date: "",
       passengers: "",
       activity: ""
   };
-
 
   static propTypes = {
     match: PropTypes.object.isRequired,
@@ -48,22 +47,23 @@ class Home extends Component {
 
   handleSharedClicked = () => {
     this.setState({
-      package: 'shared' 
+      package: 'Shared' 
     });
     console.log("Shared Packaged");
+    this.highlightTab();
   };
 
   handlePrivateClicked = () => {
     this.setState({
-      package: 'private'
-    });
-   
+      package: 'Private'
+    }); 
+    console.log("Private Packaged");
   };
   
   handleFormSubmit = event => {
     event.preventDefault();
     // debugger;
-    if (this.state.package && this.state.date && this.state.passengers) {
+    if (this.state.package || this.state.date || this.state.passengers) {
     this.props.history.push('/boats', {
       pathname: '/boats',
       state:
@@ -74,122 +74,160 @@ class Home extends Component {
         activity: this.state.activity
       }
     });
-  }
-};
+    }
+  };
 
   render() {
-   var details;
-   if(this.state.package === "shared"){
-     details = <SharedDetails></SharedDetails>
-   } else {
-     details = <h1>no</h1>
-   }
+    var details;
+      if(this.state.package === "Shared"){   
+        details = <SharedDetails></SharedDetails>     
+      } 
+      else {
+        details = <PrivateDetails></PrivateDetails>
+      }
     return (
-    
-        <Container fluid>
-          <Row>
-            <Col size="12">
-              {this.renderCarousel()}
-
-              {/* {this.onClick("#shared")} */}
-                
-{/*              
-        <video className="video-background" preload="true" muted="true" autoplay="true" loop="true">
-          <source src="/Users/isabelparra/Desktop/code/projectsTest/BoatOuter/client/src/pages/Home/A_boat_sailing_on_the_sea.mp4" type="video/mp4" />
-        </video>
-         */}
-          {/* ($"shared").on('click', function()) */}
-
-
-              <div id='packageContainer'>
-                <button id='shared' onClick={this.handleSharedClicked}>
-{/*                 
-                {this.state.package ? 'Shared' : 'Private'} */}
-                Shared</button>
-                <button id='private' onClick={this.handlePrivateClicked}>Private</button>
+      <Container>
+        <div className="row">
+        {this.renderCarousel()}
+        </div>
+      
+        <div className='row'>
+          {/* <div id="sharedTab"> */}
+            <button id='shared' onClick={this.handleSharedClicked}>
+              <div className="circle">
+                <img src={shareIcon} id="icon"></img>
+              </div>              
+                <h2 id="header">Shared</h2>
+                <p id="header">Get paired with other users going your way</p>
+            </button>
+          {/* </div> */}
+          {/* <div id="privateTab"> */}
+            <button id='private' onClick={this.handlePrivateClicked}>
+              <div className="circle">
+                <img src={privateIcon} id="icon"></img>
               </div>
-              <form id='searchForm' onSubmit={this.handleFormSubmit}>
-                <Input
-                  value={this.state.date}
-                  onChange={this.handleInputChange}
-                  name="date"
-                  list="dates"
-                  type="date"
-                  placeholder="Date (required)"
-                  id="dateSelect"
+                <h2 id="header">Private</h2>
+                <p id="header">Instantly book a private boat</p>
+            </button>
+          </div>
+      
+   
+      
+          <div className="row">
+            <form id="searchForm" onSubmit={this.handleFormSubmit}>
+              {/* <div className="">  */}
+                <div className="input col-3">
+                  <FormControl 
+                    value={this.state.date}
+                    onChange={this.handleInputChange}
+                    name="date"
+                    list="dates"
+                    type="date"
+                    placeholder="Trip Date"
+                    id="dateSelect"
                   />
-                <Input
-                  value={this.state.passengers}
-                  onChange={this.handleInputChange}
-                  name="passengers"
-                  type="integer"
-                  placeholder="Passengers (required)"
-                  />
-                <select 
-                  defaultValue={this.state.activity} 
-                  onChange={this.handleChange} 
-                  name='activity'
-                >
-                  <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
-                  <option value="Cruising">Cruising</option>
-                  <option value="Fishing">Fishing</option>
-                  <option value="Watersports">Watersports</option>
-                </select>
-                <FormBtn 
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">         
+                  <FormControl componentClass="select"         
+                    value={this.state.passengers}
+                    onChange={this.handleInputChange}
+                    name="passengers"
+                    placeholder="Party Size"
+                    id="partySize">
+                    <option value="Party Size">Party Size</option>
+                    <option value="1">1 passenger</option>
+                    <option value="2">2 passengers</option>
+                    <option value="3">3 passengers</option>
+                    <option value="4">4 passengers</option>
+                    <option value="5">5 passengers</option>
+                    <option value="6">6 passengers</option>
+                    <option value="7">7 passengers</option>
+                    <option value="8">8 passengers</option>
+                    <option value="9">9 passengers</option>
+                    <option value="10">10 passengers</option>
+                    <option value="11">11 passengers</option>
+                    <option value="12">12+ passengers</option>               
+                  </FormControl>
+                </div>
+              {/* </div> */}
+              {/* <div className="">  */}
+                <div className="input col-3">
+                {/* <ControlLabel>Select Activity</ControlLabel> */}
+                    <FormControl componentClass="select" placeholder="select"
+                      defaultValue={this.state.activity} 
+                      onChange={this.handleInputChange} 
+                      name='activity'
+                      id="activity"
+                    >
+                    <option  disabled={this.props.defaultDisabled ? true : null} >{this.props.defaultLabel}Select activity</option>
+                    <option value="Cruising">Cruising</option>
+                    <option value="Fishing">Fishing</option>
+                    <option value="Watersports">Watersports</option> 
+                  </FormControl>     
+                </div>
+              {/* </div> */}
+      
+              {/* <div className="">  */}
+                <button
                   type="submit"
+                  id="searchBttn"
                   onClick={this.props.handleFormSubmit}
-                  className="btn btn-success"
                 >
-                  Search
-                </FormBtn>
-              </form> 
-              <div>
-                <h1>Details</h1>
-                {details}
-              </div>
-          {/* {this.renderSharedDetails()} */}
-              {/* <SharedDetails>
-                <h1>Shared</h1>
-              </SharedDetails> */}
-        
-          </Col>
+                  <i className="fas fa-search"></i>
+                </button>
+              {/* </div> */}
+            </form>
+          </div>
+     
+        <Row>
+          <Col>
+        <div id="packageDetails">
+          {details}
+        </div>
+        </Col>
+         
         </Row>
-      </Container>
-    );
-  } 
-
+     </Container>
+    )
+  }
+  
   renderCarousel = () => {
     return (
-      <Carousel>
-        <Carousel.Item>
-          <img width={900} height={500} alt="900x500" src={preview}/>
-          <Carousel.Caption>
+      <Carousel id="carousel">
+        <Carousel.Item className="carouselItem">
+          <img className="CarImg" src={carousel1}/>
+          <Carousel.Caption className="caption">
             <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src={preview}/>
-          <Carousel.Caption>
+        <Carousel.Item className="carouselItem">
+        <img className="CarImg" src={carousel5}/>
+          <Carousel.Caption className="caption">
           <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-          <img width={900} height={500} alt="900x500" src={preview}/>
-          <Carousel.Caption>
+        <Carousel.Item className="carouselItem">
+          <img className="CarImg" src={carousel3}/>
+          <Carousel.Caption className="caption">
           <h1>Discover the freedom of boating</h1>
             <p>Plan your next water adventure for less</p>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>    
+      </Carousel>  
     );
   }
- 
 
-  
-   
-
+  highlightTab = () => {
+    
+  }
 }
+  // const buttonStyle = {
+  //   margin: "10px 10px 10px 10px"
+  // };
+
 
 export default withRouter(Home);

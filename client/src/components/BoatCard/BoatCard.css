@@ -1,14 +1,26 @@
 .card {
     display: inline;
+   
 
 }
+/* .img { */
+    /* height: 300px;
+    width: 250px; */
+    /* height: 250px;
+    width: 400px;
+    
+    overflow: hidden;
+} */
 
 #boatImg {
+    /* position: absolute; */
     background-size: cover;
-    background-position: center;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 75%; 
+    height: 300px;
     overflow: hidden; 
+    /* width: 300px; */
 
 }
 

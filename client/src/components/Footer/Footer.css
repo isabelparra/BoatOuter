@@ -1,15 +1,38 @@
-.footer {
-    min-height: 100px;
-    position: relative;
-    text-align: center;
+.footer { 
+background-color: #0073A4;
+min-height: 100px;
+position: relative;
+
+}
+
+.footer span {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  right: 0;
+  color: white;
+  font-size: 14px;
+  
+
+}
+    /* min-height: 1000px; */
+    /* position: relative;
+    text-align: center; */
+    /* display: block;
+    clear: both;
+
   }
   
-  .footer span {
+  /* .footer span {
+    padding-top: 4em;
+    padding-bottom: 4em;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 3px;
-    background: white;
-  }
-  
+    /* padding: 3px; */
+    /* background: white;
+  } */
+   
