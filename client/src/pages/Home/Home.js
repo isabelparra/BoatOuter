@@ -15,6 +15,7 @@ import PrivateDetails from "../../components/PrivateDetails";
 import { Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Container from "../../components/Container";
 import shareIcon from "../../assets/images/shareIcon.png";
+import privateIcon from "../../assets/images/privateIcon.png";
 import carousel1 from "../../assets/images/carousel1.png";
 import carousel4 from "../../assets/images/carousel4.png";
 import carousel3 from "../../assets/images/carousel3.png";
@@ -49,6 +50,7 @@ class Home extends Component {
       package: 'Shared' 
     });
     console.log("Shared Packaged");
+    this.highlightTab();
   };
 
   handlePrivateClicked = () => {
@@ -95,16 +97,17 @@ class Home extends Component {
               <div className="circle">
                 <img src={shareIcon} id="icon"></img>
               </div>              
-              <h2 id="header">Shared</h2>
-              <p id="header">Get paired with other users going your way</p>
+                <h2 id="header">Shared</h2>
+                <p id="header">Get paired with other users going your way</p>
             </button>
           {/* </div> */}
           {/* <div id="privateTab"> */}
             <button id='private' onClick={this.handlePrivateClicked}>
               <div className="circle">
-                </div>
-              <h2 id="header">Private</h2>
-              <p id="header">Instantly book a private boat</p>
+                <img src={privateIcon} id="icon"></img>
+              </div>
+                <h2 id="header">Private</h2>
+                <p id="header">Instantly book a private boat</p>
             </button>
           </div>
       
@@ -216,6 +219,10 @@ class Home extends Component {
         </Carousel.Item>
       </Carousel>  
     );
+  }
+
+  highlightTab = () => {
+    
   }
 }
   // const buttonStyle = {

@@ -8,7 +8,7 @@
     margin-right: 10px;
     /* width: 30%; */
     /* width: 200px; */
-    /* padding: 20px; */
+
    position: fixed !important;
     
     right: 0; 
@@ -24,3 +24,7 @@
     width: 200px; */
 
 /* } */
+
+#results {
+    padding: 10px;
+}

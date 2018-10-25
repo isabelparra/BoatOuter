@@ -1,6 +1,20 @@
 #reviews {
     background-color: #64b7d1;
     color: white;
-    padding: 50px;
+    padding: 15px;
     width: 100%;
+}
+
+#reviewsImg {
+    width: 25%;
+    margin: 0 auto;
+
+}
+
+#reviewsCarousel {
+    max-height: 350px;
+}
+
+.carouselItem item active {
+    max-height: 350px !important;
 }

@@ -6,6 +6,7 @@ import icon from "../../assets/images/icon.svg";
 import sail from "../../assets/images/sail.png";
 // import { Container } from "../../components/Grid";
 import Reviews from "../Reviews";
+import Safety from "../Safety";
 import jump from "../../assets/images/jump.jpeg";
 
 const SharedDetails = props => (
@@ -53,15 +54,7 @@ const SharedDetails = props => (
     </div>
        
             <div className="row" id="safety-header">
-              <h3>SAFETY FIRST</h3>
-              <p className="overflow-wrap">Your safety is our top priority. Every boat, captain and renter is BoatOuter-approved, which means they’ve passed our safety check.</p>
-              <div id="safety-info" className="row">
-                    <p className="col safety-col">Experts Only</p>
-                    <p className="col safety-col">Background Check</p>
-                    <p className="col safety-col">Medically Fit</p>
-                    <p className="col safety-col">Local Leaders</p>
-                    <p className="col safety-col">Perfect Boats</p>
-                </div>
+<Safety></Safety>
             </div>
               
          
