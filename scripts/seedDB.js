@@ -80,8 +80,81 @@ const boatsSeed = [
      href: "",
      image: "https://prestigewatersports.com/wp-content/uploads/2018/04/moomba.jpg",
      availability: ["2018/10/27", "2018/10/28"] 
-   }
+   },
+   {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Florida Backcountry Fishing",
+    captain: "Tim",
+    passengers: 10,
+    activity: "Fishing",
+    boatSize: "30-40 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Private",
+    listing_name: "Cruiser",
+    captain: "Tim",
+    passengers: 22,
+    activity: "Cruising",
+    boatSize: "30-40 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Yacht Party Rental - 44' Atlantis!",
+    captain: "Tim",
+    passengers: 22,
+    activity: "Watersports",
+    boatSize: "40-50 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Private",
+    listing_name: "Laid-back Luxury and Peaceful Cruising",
+    captain: "Tim",
+    passengers: 12,
+    activity: "Cruising",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Cruiser",
+    captain: "Tim",
+    passengers: 7,
+    activity: "Waterports",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  },
+  {
+    boat_name: "Belle",
+    package: "Shared",
+    listing_name: "Sailing Catamaran",
+    captain: "Tim",
+    passengers: 7,
+    activity: "Cruising",
+    boatSize: "20-30 FT",
+    href: "",
+    image: "http://www.gulfshores.com/!userfiles/subheads/LEISURE/Play/dwp_GSOB_fishing_051619_860_no_name_website.jpg",
+    availability: ["2018/10/27", "2018/10/28"] 
+  }
 ];
+
 
 
 db.Boats

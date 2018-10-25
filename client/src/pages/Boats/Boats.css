@@ -10,16 +10,16 @@
     /* width: 200px; */
     /* padding: 20px; */
     position: fixed !important;
-    display: block;
+    /* display: block; */
     right: 0;
     top: 70px !important;
     margin: 0px auto;
     background: black;
   }
 
-#dateSelect, #partySize, #selectActivity {
+#package, #partySize, #activity {
     float: right;
     margin-right: 15px;
-    width: 255px;
+    width: 200px;
 
 }

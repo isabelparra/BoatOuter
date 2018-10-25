@@ -11,7 +11,7 @@ import Input from "../../components/Input";
 
 import BoatCard from "../../components/BoatCard";
 import API from "../../utils/API";
-
+import Container from "../../components/Container";
 import { Grid, Row, Col, Form, FormControl, FormGroup, Modal, OverlayTrigger, Popover, Tooltip } from "react-bootstrap";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
@@ -133,11 +133,25 @@ fetchBoats = () => {
     
 render() {
   return (
-    <Grid>
+    <Container>
+      <div className="row" id="results">
+        { this.state.results.map(boat =>
+          <div className="col-lg-4 col-m-4 col-xs-12">
+            <BoatCard
+              key={boat._id}
+              boat={boat}
+              onClick={this.handleShow}
+            />
+          </div>  
+        )}
+      
+        {this.renderModal()}
+        <div className="col-2">
       <form className="container-fluid" 
       handleFormSubmit={this.handleFormSubmit}
       handleInputChange={this.handleInputChange}
       boats={this.state}
+      id="refineSearch"
       >
       
         {/* Package Type Button */}
@@ -149,6 +163,7 @@ render() {
         value={this.state.newSearch.package}
         placeholder={"Select Package Type"}
         handleChange={this.handleInput}
+        id="package"
         />{" "}
 
         {/* Party Size */}
@@ -160,6 +175,7 @@ render() {
         value={this.state.newSearch.passengers}
         placeholder={"Enter your party size"}
         handleChange={this.handlePassengers}
+        id="partySize"
         />{" "}
 
         {/* Activity Selection */}
@@ -171,6 +187,7 @@ render() {
         value={this.state.newSearch.activity}
         placeholder={"Select Activity"}
         handleChange={this.handleInput}
+        id="activity"
         />
 
         <Button
@@ -181,20 +198,9 @@ render() {
         />{" "}
       
       </form>
-    
-      <div id="results">
-        { this.state.results.map(boat =>
-          <Col xs={12} md={6}>
-            <BoatCard
-              key={boat._id}
-              boat={boat}
-              onClick={this.handleShow}
-            />
-          </Col>  
-        )}
       </div>
-        {this.renderModal()}
-      </Grid>
+      </div>
+      </Container>
     );
   }
   renderModal = () => {

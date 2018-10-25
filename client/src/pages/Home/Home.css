@@ -62,9 +62,9 @@ p {
 
 
 .circle {
-    height: 90px;
-    width: 90px;
-    background-color: #ffffff;
+    height: 85px;
+    width: 85px;
+    background-color: #a7e9ff;
     border-radius: 50%;
     display: inline-block;
     position: relative;
@@ -75,6 +75,12 @@ p {
     z-index: 2;
    
   
+}
+
+#icon {
+    width: 75%;
+    position: relative;
+    top: 10px;
 }
 
 

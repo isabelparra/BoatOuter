@@ -14,6 +14,7 @@ import PrivateDetails from "../../components/PrivateDetails";
 // import Reviews from "../../components/Reviews";
 import { Col, Row, Carousel, Form, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Container from "../../components/Container";
+import shareIcon from "../../assets/images/shareIcon.png";
 import carousel1 from "../../assets/images/carousel1.png";
 import carousel4 from "../../assets/images/carousel4.png";
 import carousel3 from "../../assets/images/carousel3.png";
@@ -92,6 +93,7 @@ class Home extends Component {
           {/* <div id="sharedTab"> */}
             <button id='shared' onClick={this.handleSharedClicked}>
               <div className="circle">
+                <img src={shareIcon} id="icon"></img>
               </div>              
               <h2 id="header">Shared</h2>
               <p id="header">Get paired with other users going your way</p>
