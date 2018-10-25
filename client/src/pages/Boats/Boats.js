@@ -17,7 +17,7 @@ import SearchResults from "../../components/SearchResults/SearchResults";
 import axios from "axios";
 
 // import "../../App.css"
-// import "./Boats.css"
+import "./Boats.css"
 
 
 class Boats extends Component {
@@ -134,20 +134,8 @@ fetchBoats = () => {
 render() {
   return (
     <Container>
-      <div className="row" id="results">
-        { this.state.results.map(boat =>
-          <div className="col-lg-4 col-m-4 col-xs-12">
-            <BoatCard
-              key={boat._id}
-              boat={boat}
-              onClick={this.handleShow}
-            />
-          </div>  
-        )}
-      
-        {this.renderModal()}
-        <div className="col-2">
-      <form className="container-fluid" 
+      <div className="row">
+      <form className="col-lg-2" 
       handleFormSubmit={this.handleFormSubmit}
       handleInputChange={this.handleInputChange}
       boats={this.state}
@@ -171,7 +159,7 @@ render() {
         <Input
         inputType={"number"}
         name={"passengers"}
-        title={"Passengers"}
+        // title={"Passengers"}
         value={this.state.newSearch.passengers}
         placeholder={"Enter your party size"}
         handleChange={this.handlePassengers}
@@ -199,6 +187,19 @@ render() {
       
       </form>
       </div>
+      <div id="results">
+        { this.state.results.map(boat =>
+          <div className="col-lg-5 col-m-5 col-xs-12">
+            <BoatCard
+              key={boat._id}
+              boat={boat}
+              onClick={this.handleShow}
+            />
+          </div>  
+        )}
+      
+        {this.renderModal()}
+ 
       </div>
       </Container>
     );
