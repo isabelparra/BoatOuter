@@ -22,9 +22,12 @@ passport.use(new JwtStrategy({
     // Otherwise, return the user
     done(null, user);
   } catch(error) {
+
     done(error, false);
   }
 }));
+
+
 
 // LOCAL STRATEGY
 passport.use(new LocalStrategy({
