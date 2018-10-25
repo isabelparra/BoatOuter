@@ -1,14 +1,27 @@
 .footer { 
 background-color: #0073A4;
-min-height: 100px;
-position: relative;
+height: 100px;
+/* position: absolute;
+right: 0;
+left: 0;
+bottom: 0px; */
+ /* min-height: 10vh; */
+padding: 1rem;
+/* min-height: 10vh;
+padding-bottom: 60px; */
+/* position: absolute;
+left: 0;
+bottom: 0;
+right: 0; */
 
 }
 
 .footer span {
+  /* position: relative; */
+ 
   padding-top: 4em;
   padding-bottom: 4em;
-  position: absolute;
+  /* position: absolute; */
   bottom: 10px;
   left: 20px;
   right: 0;
@@ -23,7 +36,7 @@ position: relative;
 #footer-mission {
 
   font-family: 14px;
-  position: relative;
+  /* position: relative; */
   left: 150px;
   top: 20px;
   text-align: left;

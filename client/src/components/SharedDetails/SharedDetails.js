@@ -24,22 +24,26 @@ const SharedDetails = props => (
                 <p>Choose your preference. We'll do the rest.</p>  
                 <br></br>  
                 <div className="row">
-                    <div className="detailsCol col-lg-2 col-md-2 col-xs-4">
+                    <div className="detailsCol text-center  col-lg-2 col-md-2 col-sm-4">
                         <img id="detailsIcon" src={icon}/>
-                        <p>Enjoy a boat day for as little as $50</p>
-                        {/* <p>Split the cost with users</p> */}
+                        <br></br><br></br>
+                        <strong><p>Enjoy a boat day</p></strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
               
-                <div className="detailsCol col-lg-2 col-md-2 col-xs-4">
+                <div className="detailsCol text-center  col-lg-2 col-md-2 col-sm-4">
                 <img id="detailsIcon" src={icon3}/>
-                    <p>Enjoy a boat day for as little as $50</p>
-                    {/* <p>Split the cost with users</p> */}
+                <br></br><br></br>
+                    <strong><p>Split the cost</p></strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    
                 </div>
 
-                <div className="detailsCol col-lg-2 col-md-2 col-xs-4">
+                <div className="detailsCol text-center col-lg-2 col-md-2 col-sm-4">
                 <img id="detailsIcon" src={icon4}/>
-                    <p></p>
-                    <p>Split the cost with users</p>
+                <br></br><br></br>
+                    <strong><p>Split the cost with users</p></strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
                 </div>
             </div>

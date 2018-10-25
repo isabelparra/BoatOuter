@@ -5,15 +5,15 @@
     float: right;
     padding-top: 1em;
    /* height: calc(100vh - 70px) !important; */
-    margin-right: 10px;
+    margin-right: 20px;
     /* width: 30%; */
     /* width: 200px; */
-
+    background-color: #64B7D1;
    position: fixed !important;
     
     right: 0; 
     top: 70px !important;
-    margin: 0px auto; 
+    margin: 10px auto; 
 
     /* float: right; */
   }

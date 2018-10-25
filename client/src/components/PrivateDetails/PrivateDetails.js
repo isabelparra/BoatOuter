@@ -26,22 +26,25 @@ const PrivateDetails = props => (
                 <p>Charter your own private boat.</p>  
                 <br></br>
                 <div className="row">
-                    <div className="detailsCol col-lg-2 col-md-2 col-sm-4">
+                    <div className="detailsCol text-center col-lg-2 col-md-2 col-sm-4">
                         <img id="detailsIcon" src={icon}/>
+                        <br></br><br></br>
                         <p>Know your price</p>
                         <p></p>
                     </div>
                
-                    <div className="detailsCol col-lg-2 col-md-2 col-sm-4">
+                    <div className="detailsCol text-center col-lg-2 col-md-2 col-sm-4">
                         <img id="detailsIcon" src={icon3}/>
+                        <br></br><br></br>
                             <p>Book Instantly</p>
                             <p></p>
                     </div>
    
-                    <div className="detailsCol col-lg-2 col-md-2 col-sm-4">
+                    <div className="detailsCol text-center col-lg-2 col-md-2 col-sm-4">
                         <img id="detailsIcon" src={icon4}/>
+                        <br></br><br></br>
                             <p>Pay Less Guaranteed</p>
-                            <p></p>
+                          
                     </div>
                 </div>
             </div> 
